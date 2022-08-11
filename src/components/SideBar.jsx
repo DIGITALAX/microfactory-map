@@ -17,17 +17,17 @@ function SideBar() {
 
 
   return (
-    <div className='flex absolute z-10'>
-        <div className={`${open ? 'w-72' : 'w-24'} duration-300 h-screen p-5 pt-8 bg-darkGrey relative`}>
+    <div className='flex absolute z-10 '>
+        <div className={`${open ? 'w-72' : 'w-24'} duration-500 h-screen p-5 pt-8 bg-darkGrey relative`}>
           <img src="/assets/icons/control.png" 
           className={`absolute cursor-pointer rounded-full -right-3 top-9 w-7 border-2 border-darkGrey ${!open && 'rotate-180'}`}
           onClick={()=>setOpen(!open)} />
           <div className="flex gap-x-4 items-center ml-2">
             <img src="/assets/icons/logo.png" className={`cursor-pointer duration-500`}/>
-            <h1 className={`text-white origin-left font-medium text-l duration-300 ${!open && 'scale-0'}`}>Microfactory Map</h1>
+            <h1 className={`text-white origin-left font-medium text-l duration-500 ${!open && 'scale-0'}`}>Microfactory Map</h1>
           </div>
-          <ul className="mt-12 pt-6">
-            <li className={`flex item-center gap-x-4 cursor-pointer list-none mb-2 ${!open && 'justify-center'}`}>
+          <ul className="mt-12 pt-6 origin-left">
+            <li className={`flex item-center gap-x-4 cursor-pointer list-none mb-2 ml-2 ${!open && 'justify-center ml-0'}`}>
               {
                 open ? 
                   <ConnectButton.Custom>
@@ -53,12 +53,10 @@ function SideBar() {
                           {(() => {
                             if (!mounted || !account || !chain) {
                               return (
-                                <button onClick={openConnectModal} type="button" className='font-sans text-xs bg-greenLens hover:bg-greenLens2 text-darkGreenLens py-2 px-2 rounded-lg'>
-                                  <span className=''>
-                                  {/* <img src="/assets/icons/rainbow-app-icon-small.png" className='float-left flex item-center gap-x-4 cursor-pointer p-2'/> */}
-                                  <p>Connect Wallet</p>
-                                  </span>
-                                </button>
+                                <button onClick={openConnectModal} className='justify-center font-sans text-xl bg-gradient-radial h-12 w-40 duration-500 py-2 px-2 rounded-lg hover:opacity-80'>
+                                <img className='object-fill w-6 h-6 list-none float-left p-0 mt-1 ml-3' src='/assets/icons/rainbow-small.png'/>
+                                   <span className='w-fit relative flex ml-12 text-12 leading-8 font-bold text-white duration-500 '>rainbow</span>
+                              </button>
                               );
                             }
               
@@ -196,12 +194,12 @@ function SideBar() {
                   </ConnectButton.Custom>
               }
             </li>
-            <li className={`flex item-center gap-x-4 cursor-pointer list-none ${!open && 'justify-center'}`}>
+            <li className={`flex item-center gap-x-4 cursor-pointer list-none mt-4 ml-2 ${!open && 'justify-center ml-0'}`}>
               {
                 open ?
-                <button className='font-sans text-xs bg-greenLens hover:bg-greenLens2 text-darkGreenLens py-2 px-2 rounded-lg'>
-                  <img className='object-fill w-6 h-6 list-none float-left' src='/assets/icons/lensicon.png'/>
-                     <span className='mt-1 ml-2 mr-0 relative flex'>Lens Sign in</span>
+                <button className='justify-center font-sans text-l bg-greenLens h-12 w-40 text-darkGreenLens py-2 px-2 rounded-lg hover:bg-greenLens2'>
+                  <img className='object-fill w-10 h-10 list-none float-left p-0 -mt-1' src='/assets/icons/lensicon.png'/>
+                     <span className='w-fit relative flex ml-5 leading-8 duration-500'>Lens Sign in</span>
                 </button>
                 :
                 <button className='bg-greenLens hover:bg-greenLens2 flex item-center gap-x-4 cursor-pointer rounded-lg'>
@@ -210,10 +208,10 @@ function SideBar() {
               }
             </li>
           </ul>
-          <ul className="pt-6">
+          <ul className="pt-10">
             {Menu.map((menu, index) => (
               <a href={`${menu.link}`} target="_blank" rel="noreferrer">
-              <li key={index} className={`text-gray-300 text-sm flex item-center gap-x-4 cursor-pointer p-2 hover:bg-lightGrey rounded-md ${menu.gap ? 'mt-9' : 'mt-2'} ${index === 0 && 'bg-lightGrey'}`}>
+              <li key={index} className={`text-gray-300 text-sm flex item-center gap-x-4 cursor-pointer p-2 rounded-md ${menu.gap ? 'mt-9' : 'mt-2'} ${index === 0 && 'bg-lightGrey'} hover:bg-lightGrey`}>
                 <img src={`/assets/icons/${menu.src}.png`}/>
                 <span className={`${!open && 'hidden'} origin-left duration-200`}>{menu.title}</span>
               </li>
