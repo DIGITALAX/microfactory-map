@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Map from '../components/Map';
+import Loader from '../components/Loader'
 
 export default function Home() {
   return (

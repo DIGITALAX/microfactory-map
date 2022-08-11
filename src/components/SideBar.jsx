@@ -17,189 +17,118 @@ function SideBar() {
 
 
   return (
-    <div className='flex absolute z-10 '>
-        <div className={`${open ? 'w-72' : 'w-24'} duration-500 h-screen p-5 pt-8 bg-darkGrey relative`}>
+    <div className='flex absolute z-10 ease-in-out'>
+        <div className={`${open ? 'w-72' : 'w-24'} h-screen p-5 pt-8 bg-darkGrey relative`}>
           <img src="/assets/icons/control.png" 
           className={`absolute cursor-pointer rounded-full -right-3 top-9 w-7 border-2 border-darkGrey ${!open && 'rotate-180'}`}
           onClick={()=>setOpen(!open)} />
           <div className="flex gap-x-4 items-center ml-2">
             <img src="/assets/icons/logo.png" className={`cursor-pointer duration-500`}/>
-            <h1 className={`text-white origin-left font-medium text-l duration-500 ${!open && 'scale-0'}`}>Microfactory Map</h1>
+            <h1 className={`text-white origin-left font-medium text-l ${!open && 'scale-0'}`}>Microfactory Map</h1>
           </div>
           <ul className="mt-12 pt-6 origin-left">
             <li className={`flex item-center gap-x-4 cursor-pointer list-none mb-2 ml-2 ${!open && 'justify-center ml-0'}`}>
-              {
-                open ? 
-                  <ConnectButton.Custom>
-                    {({
-                      account,
-                      chain,
-                      openAccountModal,
-                      openChainModal,
-                      openConnectModal,
-                      mounted,
-                    }) => {
-                      return (
-                        <div
-                          {...(!mounted && {
-                            'aria-hidden': true,
-                            'style': {
-                              opacity: 0,
-                              pointerEvents: 'none',
-                              userSelect: 'none',
-                            },
-                          })}
-                        >
-                          {(() => {
-                            if (!mounted || !account || !chain) {
-                              return (
-                                <button onClick={openConnectModal} className='justify-center font-sans text-xl bg-gradient-radial h-12 w-40 duration-500 py-2 px-2 rounded-lg hover:opacity-80'>
-                                <img className='object-fill w-6 h-6 list-none float-left p-0 mt-1 ml-3' src='/assets/icons/rainbow-small.png'/>
-                                   <span className='w-fit relative flex ml-12 text-12 leading-8 font-bold text-white duration-500 '>rainbow</span>
-                              </button>
-                              );
-                            }
-              
-                            if (chain.unsupported) {
-                              return (
-                                <button onClick={openChainModal} type="button">
-                                  Wrong network
-                                </button>
-                              );
-                            }
-              
-                            return (
-                              <div style={{ display: 'flex', gap: 12 }}>
-                                <button
-                                  onClick={openChainModal}
-                                  style={{ display: 'flex', alignItems: 'center' }}
-                                  type="button"
+              <ConnectButton.Custom>
+                {({
+                  account,
+                  chain,
+                  openAccountModal,
+                  openChainModal,
+                  openConnectModal,
+                  mounted,
+                  connectModalOpen
+                }) => {
+                  return (
+                    <div
+                      {...(!mounted && {
+                        'aria-hidden': true,
+                        'style': {
+                          opacity: 0,
+                          pointerEvents: 'none',
+                          userSelect: 'none',
+                          accent: '#ffffff'
+                        },
+                      })}
+                      {...(connectModalOpen && {
+                        'aria-hidden': true,
+                        'style': {
+                          accentColor: '#ffffff',
+                          modalText: '#ffffff'
+                        },
+                      })}
+                    >
+                      {(() => {
+                        if (!mounted || !account || !chain || connectModalOpen) {
+                          return (
+                            open ? 
+                            <button onClick={openConnectModal} className='justify-center font-sans text-xl bg-gradient-radial h-12 w-40 py-2 px-2 rounded-lg hover:opacity-80'>
+                              <img className='object-fill w-6 h-6 list-none float-left p-0 mt-1 ml-3' src='/assets/icons/rainbow-small.png'/>
+                                <span className="w-fit relative flex ml-12 text-12 leading-8 font-bold text-white">rainbow</span>
+                            </button> :
+                            <button onClick={openConnectModal} type="button" className='w-10 h-10 hover:opacity-80'>
+                              <img src="/assets/icons/rainbow-app-icon-small.png" />
+                            </button>
+                          );
+                        }
+          
+                        if (chain.unsupported) {
+                          return (
+                            <button onClick={openChainModal} type="button">
+                              Wrong network
+                            </button>
+                          );
+                        }
+          
+                        return (
+                          <div style={{ display: 'flex', gap: 12 }}>
+                            <button
+                              onClick={openChainModal}
+                              style={{ display: 'flex', alignItems: 'center' }}
+                              type="button"
+                            >
+                              {chain.hasIcon && (
+                                <div
+                                  style={{
+                                    background: chain.iconBackground,
+                                    width: 12,
+                                    height: 12,
+                                    borderRadius: 999,
+                                    overflow: 'hidden',
+                                    marginRight: 4,
+                                  }}
                                 >
-                                  {chain.hasIcon && (
-                                    <div
-                                      style={{
-                                        background: chain.iconBackground,
-                                        width: 12,
-                                        height: 12,
-                                        borderRadius: 999,
-                                        overflow: 'hidden',
-                                        marginRight: 4,
-                                      }}
-                                    >
-                                      {chain.iconUrl && (
-                                        <img
-                                          alt={chain.name ?? 'Chain icon'}
-                                          src={chain.iconUrl}
-                                          style={{ width: 12, height: 12 }}
-                                        />
-                                      )}
-                                    </div>
+                                  {chain.iconUrl && (
+                                    <img
+                                      alt={chain.name ?? 'Chain icon'}
+                                      src={chain.iconUrl}
+                                      style={{ width: 12, height: 12 }}
+                                    />
                                   )}
-                                  {chain.name}
-                                </button>
-              
-                                <button onClick={openAccountModal} type="button">
-                                  {account.displayName}
-                                  {account.displayBalance
-                                    ? ` (${account.displayBalance})`
-                                    : ''}
-                                </button>
-                              </div>
-                            );
-                          })()}
-                        </div>
-                      );
-                    }}
-                  </ConnectButton.Custom>
-                :
-                <ConnectButton.Custom>
-                    {({
-                      account,
-                      chain,
-                      openAccountModal,
-                      openChainModal,
-                      openConnectModal,
-                      mounted,
-                    }) => {
-                      return (
-                        <div
-                          {...(!mounted && {
-                            'aria-hidden': true,
-                            'style': {
-                              opacity: 0,
-                              pointerEvents: 'none',
-                              userSelect: 'none',
-                            },
-                          })}
-                        >
-                          {(() => {
-                            if (!mounted || !account || !chain) {
-                              return (
-                                <button onClick={openConnectModal} type="button" className='w-10 h-10 hover:opacity-80'>
-                                  <img src="/assets/icons/rainbow-app-icon-small.png" />
-                                </button>
-                              );
-                            }
-              
-                            if (chain.unsupported) {
-                              return (
-                                <button onClick={openChainModal} type="button">
-                                  Wrong network
-                                </button>
-                              );
-                            }
-              
-                            return (
-                              <div style={{ display: 'flex', gap: 12 }}>
-                                <button
-                                  onClick={openChainModal}
-                                  style={{ display: 'flex', alignItems: 'center' }}
-                                  type="button"
-                                >
-                                  {chain.hasIcon && (
-                                    <div
-                                      style={{
-                                        background: chain.iconBackground,
-                                        width: 12,
-                                        height: 12,
-                                        borderRadius: 999,
-                                        overflow: 'hidden',
-                                        marginRight: 4,
-                                      }}
-                                    >
-                                      {chain.iconUrl && (
-                                        <img
-                                          alt={chain.name ?? 'Chain icon'}
-                                          src={chain.iconUrl}
-                                          style={{ width: 12, height: 12 }}
-                                        />
-                                      )}
-                                    </div>
-                                  )}
-                                  {chain.name}
-                                </button>
-              
-                                <button onClick={openAccountModal} type="button">
-                                  {account.displayName}
-                                  {account.displayBalance
-                                    ? ` (${account.displayBalance})`
-                                    : ''}
-                                </button>
-                              </div>
-                            );
-                          })()}
-                        </div>
-                      );
-                    }}
-                  </ConnectButton.Custom>
-              }
+                                </div>
+                              )}
+                              {chain.name}
+                            </button>
+          
+                            <button onClick={openAccountModal} type="button">
+                              {account.displayName}
+                              {account.displayBalance
+                                ? ` (${account.displayBalance})`
+                                : ''}
+                            </button>
+                          </div>
+                        );
+                      })()}
+                    </div>
+                  );
+                }}
+              </ConnectButton.Custom>
             </li>
             <li className={`flex item-center gap-x-4 cursor-pointer list-none mt-4 ml-2 ${!open && 'justify-center ml-0'}`}>
               {
                 open ?
                 <button className='justify-center font-sans text-l bg-greenLens h-12 w-40 text-darkGreenLens py-2 px-2 rounded-lg hover:bg-greenLens2'>
                   <img className='object-fill w-10 h-10 list-none float-left p-0 -mt-1' src='/assets/icons/lensicon.png'/>
-                     <span className='w-fit relative flex ml-5 leading-8 duration-500'>Lens Sign in</span>
+                     <span className='w-fit relative flex ml-5 leading-8'>Lens Sign in</span>
                 </button>
                 :
                 <button className='bg-greenLens hover:bg-greenLens2 flex item-center gap-x-4 cursor-pointer rounded-lg'>

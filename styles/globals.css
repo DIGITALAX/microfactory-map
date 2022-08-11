@@ -9,7 +9,6 @@ html {
 }
 
 .leaflet-control-layers-toggle:after{ 
-  content:"your text"; 
   color:#000 ;
 }
 .leaflet-control-layers-toggle{ 

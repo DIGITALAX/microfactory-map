@@ -1,15 +1,14 @@
+import { useState, useEffect } from 'react';
 import './../../styles/globals.css';
 import SideBar from './../components/SideBar';
+import Loader from '../components/Loader';
 
 // rainbow wallet
 import '@rainbow-me/rainbowkit/styles.css';
 import {
   getDefaultWallets,
   RainbowKitProvider,
-  darkTheme,
-  Theme
 } from '@rainbow-me/rainbowkit';
-import merge from 'lodash.merge';
 import {
   chain,
   configureChains,
@@ -17,12 +16,6 @@ import {
   WagmiConfig,
 } from 'wagmi';
 import { publicProvider } from 'wagmi/providers/public';
-
-const myTheme = merge(darkTheme(), {
-  colors: {
-    accentColor: 'radial-gradient(50% 50% at 50% 50%, #1C3F8B 0%, #09265F 100%);',
-  },
-} , Theme);
 
 const { chains, provider } = configureChains(
   [chain.polygon],
@@ -43,14 +36,30 @@ const wagmiClient = createClient({
 })
 
 function MyApp({ Component, pageProps }) {
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setIsLoading(true);
+
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 6500);
+  }, []);
+
+
   return (
     <>
+    {isLoading ? (
+        <Loader />
+      ) : (
       <WagmiConfig client={wagmiClient}>
-        <RainbowKitProvider chains={chains} theme={myTheme}>
+        <RainbowKitProvider chains={chains} coolMode>
           <SideBar />
           <Component {...pageProps} />
         </RainbowKitProvider>
       </WagmiConfig>
+    )}
     </>
   );
 }
