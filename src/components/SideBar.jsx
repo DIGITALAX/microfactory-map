@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
+import LensModal from './Modals/LensModal';
 
 
 function SideBar() {
 
   const [open, setOpen] = useState(false);
+  const [modal, setModal] = useState(false);
 
   const Menu = [
     {title: "Instructables #1", src: "connect", link:"https://port15.digifizzy.xyz/magazines/15/"},
@@ -14,6 +16,10 @@ function SideBar() {
     {title: "Wayfare", src: "filter", link:"https://www.digitalax.xyz/"},
     {title: "DASH", src: "filter", link:"https://www.digitalax.xyz/"},
   ]
+
+  const handleModalOpen = () => {
+    setModal(true);
+  }
 
 
   return (
@@ -126,15 +132,16 @@ function SideBar() {
             <li className={`flex item-center gap-x-4 cursor-pointer list-none mt-4 ml-2 ${!open && 'justify-center ml-0'}`}>
               {
                 open ?
-                <button className='justify-center font-sans text-l bg-greenLens h-12 w-40 text-darkGreenLens py-2 px-2 rounded-lg hover:bg-greenLens2'>
+                <button onClick={handleModalOpen} className='justify-center font-sans text-l bg-greenLens h-12 w-40 text-darkGreenLens py-2 px-2 rounded-lg hover:bg-greenLens2'>
                   <img className='object-fill w-10 h-10 list-none float-left p-0 -mt-1' src='/assets/icons/lensicon.png'/>
                      <span className='w-fit relative flex ml-5 leading-8'>Lens Sign in</span>
                 </button>
                 :
-                <button className='bg-greenLens hover:bg-greenLens2 flex item-center gap-x-4 cursor-pointer rounded-lg'>
+                <button onClick={handleModalOpen} className='bg-greenLens hover:bg-greenLens2 flex item-center gap-x-4 cursor-pointer rounded-lg'>
                   <img className='object-fill w-10 h-10 list-none p-0' src='/assets/icons/lensicon.png'/>
                 </button>
               }
+              <LensModal visible={modal} setModal={setModal} />
             </li>
           </ul>
           <ul className="pt-10">

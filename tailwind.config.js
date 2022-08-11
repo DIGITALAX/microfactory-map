@@ -14,6 +14,9 @@ module.exports = {
         lightGrey: "#272727",
         blueRainbow: "#2437E0"
       },
+      fontFamily: {
+        'space': 'Space Grotesk'
+      },
       backgroundColor: {
         'loading-radial': 'radial-gradient(#080810 10%, #000001)',
         'loading-radial2': 'rgba(26, 159, 183, 0.8)',
