@@ -1,0 +1,107 @@
+[
+    {
+      "id": 1,
+      "letter": "b",
+      "address": "3601 N.W. 27th Avenue",
+      "city": "Miami",
+      "state": "FL",
+      "zip_code": 33142,
+      "phone_number": "(305) 638-3838",
+      "latitude": 25.8092,
+      "longitude": -80.24,
+      "type": "Factory"
+    },
+    {
+      "id": 2,
+      "letter": "b",
+      "address": "8995 N. W. 7th Avenue",
+      "city": "Miami",
+      "state": "FL",
+      "zip_code": 33150,
+      "phone_number": "(305) 754-8453",
+      "latitude": 25.8587,
+      "longitude": -80.2094,
+      "type": "Farm"
+    },
+    {
+      "id": 3,
+      "letter": "b",
+      "address": "30390 South Dixie Highway",
+      "city": "Homestead",
+      "state": "FL",
+      "zip_code": 33030,
+      "phone_number": "(305) 247-7181",
+      "latitude": 25.4849,
+      "longitude": -80.461,
+      "type": "Factory"
+    },
+    {
+      "id": 4,
+      "letter": "b",
+      "address": "7975 N. W. 27th Avenue",
+      "city": "Miami",
+      "state": "FL",
+      "zip_code": 33147,
+      "phone_number": "(305) 836-8152",
+      "latitude": 25.8471,
+      "longitude": -80.2415,
+      "type": "Farm"
+    },
+    {
+      "id": 5,
+      "letter": "b",
+      "address": "9201 South Dixie Highway",
+      "city": "Miami",
+      "state": "FL",
+      "zip_code": 33156,
+      "phone_number": "(305) 666-1130",
+      "latitude": 25.6849,
+      "longitude": -80.3125,
+      "type": "Farm"
+    },
+    {
+      "id": 6,
+      "letter": "b",
+      "address": "3051 Coral Way",
+      "city": "Miami",
+      "state": "FL",
+      "zip_code": 33145,
+      "phone_number": "(305) 445-2111",
+      "latitude": 25.7502,
+      "longitude": -80.2429,
+      "type": "Farm"
+    },
+    {
+      "id": 7,
+      "letter": "b",
+      "address": "18240 South Dixie Highway",
+      "city": "Perrine",
+      "state": "FL",
+      "zip_code": 33157,
+      "phone_number": "(305) 235-4801",
+      "latitude": 25.6003,
+      "longitude": -80.3537
+    },
+    {
+      "id": 8,
+      "letter": "b",
+      "address": "775 East 9th Street",
+      "city": "Hialeah",
+      "state": "FL",
+      "zip_code": 33010,
+      "phone_number": "(305) 885-0075",
+      "latitude": 25.8306,
+      "longitude": -80.2661
+    },
+    {
+      "id": 9,
+      "letter": "b",
+      "address": "1910 N. E. 163rd Street",
+      "city": "Miami",
+      "state": "FL",
+      "zip_code": 33162,
+      "phone_number": "(305) 947-4121",
+      "latitude": 25.926,
+      "longitude": -80.1617
+    }
+]
