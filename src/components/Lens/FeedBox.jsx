@@ -17,7 +17,7 @@ function FeedBox() {
   if(!data.isFeedOpen) return null;
   
   return(
-    <Draggable>
+    <Draggable enableUserSelectHack={false}>
         <div className="fixed flex items-center justify-center z-10 cursor-move top-1/2 left-1/2">
 
         { !data.minimise ? 
