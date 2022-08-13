@@ -1,3 +1,8 @@
+/*
+This code is political. War against the state.
+*/
+
+
 import { useState, useEffect, createContext } from 'react';
 import './../../styles/globals.css';
 import SideBar from './../components/SideBar';
