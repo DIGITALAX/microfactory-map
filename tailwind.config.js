@@ -12,10 +12,16 @@ module.exports = {
         darkGreenLens: '#00501e',
         darkGrey: "#131313",
         lightGrey: "#272727",
-        blueRainbow: "#2437E0"
+        blueRainbow: "#2437E0",
+        lensLilac: "#D3B6FF",
+        lensGrey: "#FCFCFC",
+        lensDarkGrey: "#212322"
       },
       fontFamily: {
-        'space': 'Space Grotesk'
+        'space': 'Space Grotesk',
+        'space-bold': 'Space Grotesk Bold',
+        'coop': 'Cooper Black',
+        'npress': 'New Press'
       },
       backgroundColor: {
         'loading-radial': 'radial-gradient(#080810 10%, #000001)',
@@ -31,6 +37,10 @@ module.exports = {
           '90%': { width: '50vmin', height:'50vmin'},
           '100%': {borderColor:'black', top:'50%', left:'50%', margin:'0'}
         }
+      },
+      height: {
+        'mf': '80vw',
+        'mfh': '47vw'
       }
     },
   },

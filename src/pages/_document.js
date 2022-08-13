@@ -12,11 +12,48 @@ export default function Document() {
               __html: `
             @font-face {
               font-family: "Space Grotesk";
-              src: url("./fonts/SpaceGrotesk-Regular.otf") format("woff2"),
-              url("./fonts/SpaceGrotesk-Regular.otf") format("otf");
-              font-weight: normal;
-              font-style: normal;
-            }`}}
+              font-weight: 400;
+              src: url("./fonts/SpaceGrotesk-Regular.otf");
+            }
+
+            @font-face {
+              font-family: "Space Grotesk Bold";
+              font-weight: 700;
+              src: url("./fonts/SpaceGrotesk-Bold.otf");
+            }
+
+            @font-face {
+              font-family: 'Mr. Machine';
+              font-weight: 400;
+              src: url("./fonts/MrMachine.otf");
+            }
+
+            @font-face {
+              font-family: 'New Press';
+              font-weight: 400;
+              src: url("./fonts/NewPress.otf");
+            }
+
+
+            @font-face {
+              font-family: 'F25 Bank Printer';
+              font-weight: 400;
+              src: url("./fonts/F25_Bank_Printer.ttf");
+            }
+
+            @font-face {
+              font-family: 'Old Press Original';
+              font-weight: 400;
+              src: url("./fonts/Old Press Original.otf");
+            }
+            
+            @font-face {
+              font-family: 'Cooper Black';
+              font-weight: 400;
+              src: url("./fonts/COOPBL.ttf");
+            }
+            
+            `}}
           />
       </Head>
       <body>

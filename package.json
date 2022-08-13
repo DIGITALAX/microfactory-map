@@ -12,14 +12,18 @@
   "dependencies": {
     "@rainbow-me/rainbowkit": "^0.4.5",
     "ethers": "^5.6.9",
+    "graphql": "^16.5.0",
     "leaflet": "^1.7.1",
     "lodash.merge": "^4.6.2",
+    "moment": "^2.29.4",
     "next": "^12.2.4",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-draggable": "^4.4.5",
     "react-icons": "^4.4.0",
     "react-leaflet": "^3.2.5",
     "tailwindcss": "^3.1.8",
+    "urql": "^2.2.3",
     "wagmi": "^0.6.2"
   },
   "devDependencies": {
