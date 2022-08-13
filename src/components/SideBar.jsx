@@ -15,6 +15,7 @@ function SideBar() {
     {title: "Storefront", src: "connect", link:"https://port15.digifizzy.xyz/magazines/15/"},
     {title: "WayFare", src: "sign in", link:"https://www.digifizzy.xyz/magazines/14/"},
     {title: "Guilds", src: "explore", gap: true, link:"https://www.patrons.digitalax.xyz/"},
+    {title: "Instructables", src: "filter", link:"https://port15.digifizzy.xyz/magazines/15/"},
     {title: "Explore Realms", src: "filter", link:"https://www.digitalax.xyz/"},
     {title: "DASH", src: "filter", link:"https://www.digitalax.xyz/"},
   ]
@@ -33,7 +34,7 @@ function SideBar() {
           onClick={()=>setOpen(!open)} />
           <div className="flex gap-x-4 items-center ml-2">
             <img src="/assets/icons/logo.png" className={`cursor-pointer duration-500`}/>
-            <h1 className={`text-white origin-left font-npress font-medium text-3xl ${!open && 'scale-0'}`}>Microfactory Map</h1>
+            <h1 className={`text-white origin-left font-f25 font-medium text-sm ${!open && 'scale-0'}`}>Microfactory Map</h1>
           </div>
           <ul className="mt-12 pt-6 origin-left">
             <li className={`flex item-center mb-4 gap-x-4 cursor-pointer list-none ml-2 ${!open && 'justify-center ml-0'}`}>
@@ -163,7 +164,7 @@ function SideBar() {
           <ul className="pt-10">
             {Menu.map((menu, index) => (
               <a key={index} href={`${menu.link}`} target="_blank" rel="noreferrer">
-              <li className={`text-gray-300 text-sm flex item-center gap-x-4 cursor-pointer p-2 rounded-md ${menu.gap ? 'mt-9' : 'mt-2'} ${index === 0 && 'bg-lightGrey'} hover:bg-lightGrey`}>
+              <li className={`text-gray-300 font-f25 text-sm flex item-center gap-x-4 cursor-pointer p-2 rounded-md ${menu.gap ? 'mt-9' : 'mt-2'} ${index === 0 && 'bg-lightGrey'} hover:bg-lightGrey`}>
                 <img src={`/assets/icons/${menu.src}.png`}/>
                 <span className={`${!open && 'hidden'} origin-left duration-200`}>{menu.title}</span>
               </li>

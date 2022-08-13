@@ -6,7 +6,6 @@ import { contextApi } from '../../pages/_app';
 import Draggable from "react-draggable";
 import Feed from './Feed';
 import FeedSearch from './FeedSearch';
-import {FaRetweet} from 'react-icons/fa';
 
 
 function FeedBox() {
