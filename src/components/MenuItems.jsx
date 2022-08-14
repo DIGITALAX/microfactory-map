@@ -13,7 +13,7 @@ function MenuItems(props) {
   };
 
   const handleGuildModalOpen = () => {
-    setCypherModal(true);
+    setGuildModal(true);
   };
 
 
@@ -24,7 +24,7 @@ function MenuItems(props) {
         <img src={`./assets/icons/restaurant.png`} className='w-6 h-6'/>
         <span className={`${!props.open && 'hidden'} origin-left duration-200`}>Storefront</span>
       </li>
-      <CypherModal visible={cypherModal} setCypherModal={setCypherModal} />
+      <CypherModal goDownToMintSection={props.goDownToMintSection} visible={cypherModal} setCypherModal={setCypherModal} />
       <li onClick={handleCypherModalOpen} className={`text-gray-300 font-f25 text-sm flex item-center gap-x-4 cursor-pointer p-2 rounded-md mt-2 hover:bg-lightGrey`}>
         <img src={`./assets/icons/treasure-map.png`} className='w-6 h-6'/>
         <span className={`${!props.open && 'hidden'} origin-left duration-200`}>Wayfare</span>
@@ -33,7 +33,7 @@ function MenuItems(props) {
         <img src={`./assets/icons/team-building.png`} className='w-6 h-6'/>
         <span className={`${!props.open && 'hidden'} origin-left duration-200`}>Guilds</span>
       </li>
-      <GuildModal visible={guildModal} setGuildModal={setGuildModal} />
+      <GuildModal goDownToMintSection={props.goDownToMintSection} visible={guildModal} setGuildModal={setGuildModal} />
       <li className={`text-gray-300 font-f25 text-sm flex item-center gap-x-4 cursor-pointer p-2 rounded-md mt-2 hover:bg-lightGrey`}>
         <img src={`./assets/icons/user-guide.png`} className='w-6 h-6'/>
         <span onClick={props.goDownToMintSection} className={`${!props.open && 'hidden'} origin-left duration-200`}>Instructables</span>

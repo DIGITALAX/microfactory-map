@@ -97,9 +97,8 @@ function Common() {
 
       <section
         className="mt-0 text-white md:mt-16 pb-48 pt-20 w-full flex flex-col items-center"
-        id="mint-section"
       >
-      <div className="w-1/2 lg:w-1/2 text-lg md:text-3xl lg:text-5xl text-center mt-16 font-npress">
+      <div id="mint-section" className="w-1/2 lg:w-1/2 text-lg md:text-3xl lg:text-5xl text-center mt-16 font-npress">
       Each instructable collected, shared and recycled puts another pixel brick on the build map for a hyper-local web3 microfactory, virtually, and possibly IRL, near you.
         </div>
         <div className="mt-8 text-center">
