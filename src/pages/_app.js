@@ -47,6 +47,30 @@ function MyApp({ Component, pageProps }) {
     setMinimise(false);
   };
 
+  const findPos = (obj) => {
+    var curtop = 0;
+    if (obj.offsetParent) {
+      do {
+        curtop += obj.offsetTop;
+      } while ((obj = obj.offsetParent));
+      return [curtop];
+    }
+  };
+
+  const goDownToMintSection = () => {
+    window.scrollBy({
+      top: findPos(document.getElementById("mint-section")),
+      behavior: "smooth",
+    });
+  };
+
+  const goDownToRenewables = () => {
+    window.scrollBy({
+      top: findPos(document.getElementById("renewables")),
+      behavior: "smooth",
+    });
+  };
+
   return (
     <>
       {/* {isLoading ? (
@@ -60,6 +84,8 @@ function MyApp({ Component, pageProps }) {
               handleFeedModal: handleFeedModal,
               handleMinimise: handleMinimise,
               minimise: minimise,
+              goDownToMintSection: goDownToMintSection,
+              goDownToRenewables: goDownToRenewables,
             }}
           >
             <SideBar />

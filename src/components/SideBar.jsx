@@ -134,9 +134,9 @@ function SideBar() {
             <li className={`flex item-center gap-x-4 cursor-pointer list-none mt-4 ml-2 ${!open && 'justify-center ml-0'}`}>
               {
                 open ?
-                <button onClick={handleLensModalOpen} className='justify-center font-space-bold text-l bg-greenLens h-12 w-40 text-darkGreenLens py-2 px-2 rounded-lg hover:bg-greenLens2'>
+                <button onClick={handleLensModalOpen} className='justify-center font-spacebold text-l bg-greenLens h-12 w-40 text-darkGreenLens py-2 px-2 rounded-lg hover:bg-greenLens2'>
                   <img className='object-fill w-10 h-10 list-none float-left p-0 -mt-1' src='/assets/lens/lensicon.png'/>
-                     <span className='w-fit relative flex ml-5 leading-8'>Lens Sign in</span>
+                     <span className='w-fit relative flex ml-5 leading-8 font-spacebold'>Lens Sign in</span>
                 </button>
                 :
                 <button onClick={handleLensModalOpen} className='bg-greenLens flex item-center gap-x-4 cursor-pointer rounded-lg hover:bg-greenLens2'>
@@ -148,9 +148,9 @@ function SideBar() {
             <li className={`flex item-center gap-x-4 cursor-pointer list-none mt-4 ml-2 ${!open && 'justify-center ml-0'}`}>
               {
                 open ?
-                <button onClick={data.handleFeedModal} className='justify-center font-space-bold text-l bg-lensLilac h-12 w-40 text-darkGreenLens py-2 px-2 rounded-lg hover:opacity-80'>
+                <button onClick={data.handleFeedModal} className='justify-center font-spacebold text-l bg-lensLilac h-12 w-40 text-darkGreenLens py-2 px-2 rounded-lg hover:opacity-80'>
                   <img className='object-fill w-10 h-10 list-none float-left p-0 -mt-1' src='/assets/lens/grow.png'/>
-                     <span className={`w-fit relative flex ml-5 leading-8 ${lensModal && 'hidden'}`}>Scroll Feed</span>
+                     <span className={`w-fit relative flex ml-5 leading-8 font-spacebold  ${lensModal && 'hidden'}`}>Scroll Feed</span>
                 </button>
                 :
                 <button onClick={data.handleFeedModal} className='bg-lensLilac flex item-center gap-x-4 cursor-pointer rounded-lg hover:opacity-80'>
@@ -159,7 +159,7 @@ function SideBar() {
               }
             </li>
           </ul>
-            <MenuItems open={open} />
+            <MenuItems goDownToRenewables={data.goDownToRenewables} goDownToMintSection={data.goDownToMintSection} open={open} />
         </div>
     </div>
     </div>

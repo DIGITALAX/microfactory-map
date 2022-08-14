@@ -7,7 +7,7 @@ export default function Document() {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-          href="https://fonts.googleapis.com/css2?family=Armata&family=Londrina+Solid:wght@100&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Armata&family=Londrina+Solid:wght@400&display=swap"
           rel="stylesheet"
         />
         <style
@@ -55,6 +55,24 @@ export default function Document() {
              font-weight: 400;
              src: url("./fonts/COOPBL.ttf");
            }
+
+           @font-face {
+            font-family: 'Londrina Shadow';
+            font-weight: 400;
+            src: url("./fonts/LondrinaShadow-Regular.ttf");
+          }
+
+          @font-face {
+            font-family: 'Londrina Light';
+            font-weight: 400;
+            src: url("./fonts/LondrinaSolid-Light.ttf");
+          }
+
+          @font-face {
+            font-family: 'Londrina Thin';
+            font-weight: 400;
+            src: url("./fonts/LondrinaSolid-thin.ttf");
+          }
           
            `,
           }}

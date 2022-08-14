@@ -28,8 +28,8 @@ const FeedSearch = () => {
  
     return (
         <div>
-            <input className='bg-lensGrey pl-4 mt-4 mr-2 ml-2 rounded-lg mb-3 item-center h-8 relative left-[75px] border-2 border-solid border-darkGreenLens' type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
-            <button className='text-white font-space bg-darkGreenLens rounded-lg h-8 pr-2 pl-2 relative left-[75px] hover:opacity-80' onClick={() => setSearch(inputValue)}>Search</button>
+            <input className='bg-lensGrey pl-4 mt-4 mr-2 ml-2 rounded-lg mb-3 item-center h-8 relative left-[110px] border-2 border-solid border-darkGreenLens' type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
+            <button className='text-white font-space bg-darkGreenLens rounded-lg h-8 pr-2 pl-2 relative left-[110px] hover:opacity-80' onClick={() => setSearch(inputValue)}>Search</button>
         </div>
     )
  

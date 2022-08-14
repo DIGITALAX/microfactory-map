@@ -88,9 +88,9 @@ function Feed(props) {
                         </div>
                         <div>
                         <a href={`https://lenster.xyz/u/${publication.profile.handle}`}  target="_blank" rel="noreferrer">
-                        <b className='text-darkGreenLens relative top-1 float-left'>@{publication.profile.handle}</b>
+                        <b className='text-darkGreenLens relative top-1 font-sans float-left'>@{publication.profile.handle}</b>
                         </a>
-                        <div className='text-space text-xs inline-block align-middle mt-1.5 ml-2'>{moment(`${publication.createdAt}`).fromNow()}</div>
+                        <div className='text-space text-xs inline-block align-middle font-sans mt-1.5 ml-2'>{moment(`${publication.createdAt}`).fromNow()}</div>
                         </div>
                         <div className='mt-6 mb-8 rounded pt-4 pl-8 pr-8 pb-4 border-solid border bg-lensGrey border-lensGrey drop-shadow-md'>
                             <JSONPretty data={publication.metadata.content}/>
@@ -98,7 +98,7 @@ function Feed(props) {
                             { publication.metadata.media.original?.url === null ? null : <img key={index} src={`${publication.metadata.media?.original?.url}`}/>
                             }
                                 <a href={`https://lenster.xyz/posts/${publication.id}`} target="_blank" rel="noreferrer">
-                                <ul className='mt-2 inline-block cursor-pointer'>
+                                <ul className='mt-2 inline-block cursor-pointer font-sans'>
                                 <li className='float-left m-1 ml-0'>
                                 <HiCollection className='float-left m-2 ml-0 align-middle' />
                                 <span className='relative top-1'>

@@ -31,7 +31,7 @@ function FeedBox() {
           className='item-center right-6 top-0 p-0 m-2 cursor-pointer absolute'
           onClick={data.handleMinimise}
           />
-          <h1 className="font-semibold text-center text-xl text-darkGreenLens mt-4 font-space-bold">
+          <h1 className="font-semibold text-center text-xl text-darkGreenLens mt-4 font-spacebold">
             Scroll Feed
           </h1>
           <FeedSearch />
@@ -51,7 +51,7 @@ function FeedBox() {
         className='item-center top-[36%] right-10 p-0 cursor-pointer absolute'
         onClick={data.handleMinimise}
         />
-        <h1 className="font-semibold border-solid border rounded-lg	p-2 border-red-600 text-left text-xl text-darkGreenLens font-space-bold">
+        <h1 className="font-semibold border-solid border rounded-lg	p-2 border-red-600 text-left text-xl text-darkGreenLens font-spacebold">
           OKAY BLOOMER
         </h1>
       </div> 
