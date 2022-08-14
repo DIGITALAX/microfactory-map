@@ -28,3 +28,11 @@ html {
 .leaflet-control-zoom-in { 
 
 }
+
+
+.__json-pretty-error__ {
+  padding-bottom: 15px;
+  cursor: text;
+  font-family: sans-serif;
+  white-space: pre-line;
+}

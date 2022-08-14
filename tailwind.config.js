@@ -10,6 +10,7 @@ module.exports = {
         greenLens: "#abfe2c",
         greenLens2: "#96E024",
         darkGreenLens: "#00501e",
+        rainbow: "#0E76FD",
         darkGrey: "#131313",
         lightGrey: "#272727",
         blueRainbow: "#2437E0",

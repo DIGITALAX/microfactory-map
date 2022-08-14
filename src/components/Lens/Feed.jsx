@@ -1,36 +1,78 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import { client, randomPublications } from '../../apis/api';
 import {CgProfile} from 'react-icons/cg';
 import moment from 'moment';
 import {FaRetweet, FaComments} from 'react-icons/fa';
 import {HiCollection} from 'react-icons/hi'
+import InfiniteScroll from 'react-infinite-scroll-component';
+import ScrollLoader from './ScrollLoader';
+import JSONPretty from 'react-json-pretty';
 
-function Feed() {
 
-    const [publicationsFeed, setPublicationsFeed] = useState();
+function Feed(props) {
 
-    useEffect(()=> {
-            async function fetchPublications() {
-                try {
-                    // pass id as object since reuqest in api id also passed as object
-                    const response = await client.query(randomPublications).toPromise();
-                    console.log(response.data.explorePublications.items);
-                    setPublicationsFeed(response.data.explorePublications.items);
+    const [publicationsFeed, setPublicationsFeed] = useState([]);
 
-                } catch (err) {
-                    console.log(err)
-                }
-            } 
-            fetchPublications();
+
+    async function fetchPublications() {
+        try {
+            // pass id as object since reuqest in api id also passed as object
+            const response = await client.query(randomPublications).toPromise();
+            console.log(response.data.explorePublications.items);
+            return response.data.explorePublications.items;
+
+        } catch (err) {
+            console.log(err)
+        }
+    };
+
+
+    useEffect( () => {
+
+        fetchMorePublications();
+        
     },[]);
 
-    if (!publicationsFeed) return null;
+    const fetchMorePublications = async () => {
+
+        const data = await fetchPublications();
+
+        setPublicationsFeed(pubs => ([...pubs, ...data]));
+    }
+
+    // const currentPage = useRef(0)
+
+    //console.log(publicationsFeed.length, publicationsFeed?.map())
+
+
+    // (async ()=> {
+    //     console.log('useEffect fetching')
+    //     if(loading) return
+    //     if(!publicationsFeed.length || nearingBottom) {
+    //         setNearingBottom(false)
+    //         setLoading(true)
+    //         currentPage.current++
+    //         console.log('fetching....')
+    //         const data = await fetchPublications()
+    //         console.log(data.map(i => i.id))
+    //         setPublicationsFeed(pubs => [...pubs, ...data]);
+    //         setLoading(false)
+    //     }
+    // },[nearingBottom, setNearingBottom]);
+
 
   return (
-    <div>
+    <InfiniteScroll
+    dataLength={publicationsFeed.length}
+    next={fetchMorePublications}
+    hasMore={true}
+    loader={<ScrollLoader />}
+    height='20rem'
+    scrollableTarget={props.id}
+    >
         {
-            publicationsFeed.map((publication, index)=>{
-                return (
+            publicationsFeed.map((publication, index)=>
+            (
                     <div key={index}>
                         <div className='w-12 float-left'>
                         <a href={`https://lenster.xyz/u/${publication.profile.handle}`}  target="_blank" rel="noreferrer">
@@ -51,24 +93,25 @@ function Feed() {
                         <div className='text-space text-xs inline-block align-middle mt-1.5 ml-2'>{moment(`${publication.createdAt}`).fromNow()}</div>
                         </div>
                         <div className='mt-6 mb-8 rounded pt-4 pl-8 pr-8 pb-4 border-solid border bg-lensGrey border-lensGrey drop-shadow-md'>
-                            <div className='pb-4 cursor-text'>
-                            {publication.metadata.content}
-                            </div>
+                            <JSONPretty data={publication.metadata.content}/>
+                            {/* {publication.metadata.media?.original?.map((image, index) => ( */}
+                            { publication.metadata.media.original?.url === null ? null : <img key={index} src={`${publication.metadata.media?.original?.url}`}/>
+                            }
                                 <a href={`https://lenster.xyz/posts/${publication.id}`} target="_blank" rel="noreferrer">
                                 <ul className='mt-2 inline-block cursor-pointer'>
-                                <li className='float-left m-2 ml-0'>
+                                <li className='float-left m-1 ml-0'>
                                 <HiCollection className='float-left m-2 ml-0 align-middle' />
                                 <span className='relative top-1'>
                                 {publication.stats.totalAmountOfCollects}
                                 </span>
                                 </li>
-                                <li className='float-left m-2'>
+                                <li className='float-left m-1'>
                                 <FaComments className='float-left m-2 align-middle' />
                                 <span className='relative top-1'>
                                 {publication.stats.totalAmountOfComments}
                                 </span>
                                 </li>
-                                <li className='float-left m-2'>
+                                <li className='float-left m-1'>
                                 <FaRetweet className='float-left m-2 align-middle' />
                                 <span className='relative top-1'>
                                 {publication.stats.totalAmountOfMirrors}
@@ -78,10 +121,9 @@ function Feed() {
                                 </a>
                         </div>
                     </div>
-                )
-            })
+            ))
         }
-    </div>
+    </InfiniteScroll>
   )
 }
 

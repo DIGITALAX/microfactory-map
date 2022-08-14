@@ -1,14 +1,14 @@
-import { createClient } from 'urql';
+import { createClient } from "urql";
 
-const APIURL = 'https://api.lens.dev';
+const APIURL = "https://api.lens.dev";
 
 export const client = new createClient({
   url: APIURL,
-})
+  requestPolicy: "network-only",
+});
 
 // limit can be changed
-export const randomPublications = 
-`query ExplorePublications {
+export const randomPublications = `query ExplorePublications {
   explorePublications(request: {
     sortCriteria: TOP_COMMENTED,
     publicationTypes: [POST, COMMENT, MIRROR],
@@ -346,10 +346,9 @@ fragment CommentMirrorOfFields on Comment {
        ...MirrorBaseFields
     }
   }
-}`
+}`;
 
-export const searchPublications = 
-`query Search($request: SearchQueryRequest!) {
+export const searchPublications = `query Search($request: SearchQueryRequest!) {
   search(request: $request) {
     ... on PublicationSearchResult {
        __typename 
@@ -662,4 +661,4 @@ fragment CommentMirrorOfFields on Comment {
        ...MirrorBaseFields
     }
   }
-}`
+}`;

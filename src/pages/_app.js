@@ -7,6 +7,7 @@ import "./../../styles/globals.css";
 import SideBar from "./../components/SideBar";
 import Loader from "../components/Loader";
 import FeedBox from "../components/Lens/FeedBox";
+import Footer from "../components/Layout/Footer";
 
 // rainbow wallet
 import "@rainbow-me/rainbowkit/styles.css";
@@ -46,36 +47,29 @@ function MyApp({ Component, pageProps }) {
     setMinimise(false);
   };
 
-  useEffect(() => {
-    setIsLoading(true);
-
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 3500);
-  }, []);
-
   return (
     <>
-      {isLoading ? (
+      {/* {isLoading ? (
         <Loader />
-      ) : (
-        <WagmiConfig client={wagmiClient}>
-          <RainbowKitProvider chains={chains} coolMode>
-            <contextApi.Provider
-              value={{
-                isFeedOpen: isFeedOpen,
-                handleFeedModal: handleFeedModal,
-                handleMinimise: handleMinimise,
-                minimise: minimise,
-              }}
-            >
-              <SideBar />
-              <FeedBox />
-            </contextApi.Provider>
+      ) : ( */}
+      <WagmiConfig client={wagmiClient}>
+        <RainbowKitProvider chains={chains} coolMode>
+          <contextApi.Provider
+            value={{
+              isFeedOpen: isFeedOpen,
+              handleFeedModal: handleFeedModal,
+              handleMinimise: handleMinimise,
+              minimise: minimise,
+            }}
+          >
+            <SideBar />
+            <FeedBox />
             <Component {...pageProps} />
-          </RainbowKitProvider>
-        </WagmiConfig>
-      )}
+          </contextApi.Provider>
+          <Footer />
+        </RainbowKitProvider>
+      </WagmiConfig>
+      {/* // )} */}
     </>
   );
 }

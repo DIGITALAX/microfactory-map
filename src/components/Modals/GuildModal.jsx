@@ -2,10 +2,10 @@ import React from 'react';
 import { AiFillCloseCircle } from 'react-icons/ai'
 
 
-function LensModal(props) {
+function GuildModal(props) {
 
-  const handleLensModalClose = () => {
-    props.setLensModal(false);
+  const handleGuildModalClose = () => {
+    props.setGuildModal(false);
   }
 
   if(!props.visible) return null;
@@ -16,7 +16,7 @@ function LensModal(props) {
       <AiFillCloseCircle 
       color='#00501e'
       className='item-center right-0 top-0 p-0 m-2 cursor-pointer absolute'
-      onClick={handleLensModalClose}
+      onClick={handleGuildModalClose}
       />
       <h1 className="font-semibold text-center text-xl text-darkGreenLens mt-4 font-space">
         Coming Soon
@@ -34,4 +34,4 @@ function LensModal(props) {
   )
 }
 
-export default LensModal
+export default GuildModal

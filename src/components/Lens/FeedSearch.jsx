@@ -15,7 +15,7 @@ const FeedSearch = () => {
                     request: {
                         query: search,
                         type: "PUBLICATION",
-                        limit: 30
+                        limit: 10
                     }
                 }).toPromise()
                 setPublications(publicationsResponse.data.search.items)

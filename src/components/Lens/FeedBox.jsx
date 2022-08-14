@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, useRef} from 'react';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { VscChromeMinimize } from 'react-icons/vsc';
 import { HiArrowsExpand } from 'react-icons/hi'
@@ -11,7 +11,6 @@ import FeedSearch from './FeedSearch';
 function FeedBox() {
 
   const data = useContext(contextApi);
-
 
   if(!data.isFeedOpen) return null;
   
@@ -36,8 +35,8 @@ function FeedBox() {
             Scroll Feed
           </h1>
           <FeedSearch />
-          <div className='bg-lensGrey p-6 mr-2 ml-2 rounded-lg mb-5 item-center h-96 overflow-scroll select-text'>
-          < Feed />
+          <div className='bg-lensGrey p-6 mr-2 ml-2 rounded-lg mb-5 item-center h-96 overflow-auto select-text'>
+          < Feed id='#scrollableDiv' />
           </div>
         </div> 
         :

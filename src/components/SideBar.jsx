@@ -2,28 +2,27 @@ import React, {useState, useContext} from 'react';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import LensModal from './Modals/LensModal';
 import { contextApi } from '../pages/_app';
+import {MdError} from 'react-icons/md';
+import MenuItems from './MenuItems';
 
 function SideBar() {
 
   const data = useContext(contextApi);
 
   const [open, setOpen] = useState(false);
-  const [modal, setModal] = useState(false);
-  
+  const [lensModal, setLensModal] = useState(false);
 
   const Menu = [
-    {title: "Storefront", src: "connect", link:"https://port15.digifizzy.xyz/magazines/15/"},
-    {title: "WayFare", src: "sign in", link:"https://www.digifizzy.xyz/magazines/14/"},
-    {title: "Guilds", src: "explore", gap: true, link:"https://www.patrons.digitalax.xyz/"},
+    {title: "Storefront", src: "storefront", link:"https://port15.digifizzy.xyz/magazines/15/"},
+    {title: "WayFare", src: "wayfare", link:{}},
+    {title: "Guilds", src: "guild", gap: true, link:"https://www.patrons.digitalax.xyz/"},
     {title: "Instructables", src: "filter", link:"https://port15.digifizzy.xyz/magazines/15/"},
-    {title: "Explore Realms", src: "filter", link:"https://www.digitalax.xyz/"},
-    {title: "DASH", src: "filter", link:"https://www.digitalax.xyz/"},
-  ]
+    {title: "Renewables", src: "filter", link:"https://renewables.wtf"},
+    {title: "Explore Realms", src: "filter", link:"https://www.digitalax.xyz/"}  ]
 
-  const handleModalOpen = () => {
-    setModal(true);
-  }
-
+  const handleLensModalOpen = () => {
+    setLensModal(true);
+  };
 
   return (
     <div className='float-left' >
@@ -34,11 +33,11 @@ function SideBar() {
           onClick={()=>setOpen(!open)} />
           <div className="flex gap-x-4 items-center ml-2">
             <img src="/assets/icons/logo.png" className={`cursor-pointer duration-500`}/>
-            <h1 className={`text-white origin-left font-f25 font-medium text-sm ${!open && 'scale-0'}`}>Microfactory Map</h1>
+            <h1 className={`text-white origin-left font-f25 font-medium text-xl ${!open && 'scale-0'}`}>Mini Map</h1>
           </div>
           <ul className="mt-12 pt-6 origin-left">
             <li className={`flex item-center mb-4 gap-x-4 cursor-pointer list-none ml-2 ${!open && 'justify-center ml-0'}`}>
-              <ConnectButton.Custom>
+              <ConnectButton.Custom >
                 {({
                   account,
                   chain,
@@ -71,60 +70,59 @@ function SideBar() {
                         if (!mounted || !account || !chain || connectModalOpen) {
                           return (
                             open ? 
-                            <button onClick={openConnectModal} className='justify-center font-sans text-xl bg-gradient-radial h-12 w-40 py-2 px-2 rounded-lg hover:opacity-80'>
+                            <button onClick={openConnectModal} className='justify-center font-sans text-xl bg-rainbow h-12 w-40 py-2 px-2 rounded-lg hover:opacity-80' >
                               <img className='object-fill w-6 h-6 list-none float-left p-0 mt-1 ml-3' src='/assets/icons/rainbow-small.png'/>
                                 <span className="w-fit relative flex ml-12 text-12 leading-8 font-bold text-white">rainbow</span>
                             </button> :
-                            <button onClick={openConnectModal} type="button" className='w-10 h-10 hover:opacity-80'>
-                              <img src="/assets/icons/rainbow-app-icon-small.png" />
+                            <button onClick={openConnectModal} type="button" className='bg-rainbow flex item-center gap-x-4 cursor-pointer rounded-lg hover:opacity-80'>
+                              <img src="/assets/icons/rainbow-small.png" className='w-10 h-10 p-2' />
                             </button>
                           );
-                        }
+                        } 
           
                         if (chain.unsupported) {
                           return (
-                            <button onClick={openChainModal} type="button">
-                              Wrong network
+                            open ?
+                            <button onClick={openChainModal} type="button" className='justify-center font-sans text-sm bg-rainbow h-12 w-40 py-2 px-2 rounded-lg hover:opacity-80'>
+                              <MdError className='object-fill w-4 top-1 relative h-4 list-none float-left p-0 mt-1 ml-2' color='white'/>
+                                <span className="w-fit relative flex ml-8 leading-8 font-bold text-white">Switch Network</span>
+                                <span class="relative h-3 w-3">
+                                <span class="animate-ping absolute -right-40 -top-11 h-3 w-3 rounded-full opacity-75 bg-red-600"></span>
+                                <span class="absolute -right-40 -top-11 inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+                                </span>
+                            </button> 
+                            :
+                            <button onClick={openChainModal} type="button" className='bg-rainbow w-10 h-10 flex item-center cursor-pointer rounded-lg hover:opacity-80'>
+                            <MdError 
+                            className='w-10 h-10 relative left-1'
+                            color='white'
+                            />
+                            <span class="relative h-3 w-3">
+                                <span class="animate-ping absolute -right-18 -top-1 h-3 w-3 rounded-full opacity-75 bg-red-600"></span>
+                                <span class="absolute -right-18 -top-1 inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+                            </span>
                             </button>
                           );
                         }
           
                         return (
                           <div style={{ display: 'flex', gap: 12 }}>
-                            <button
+                            {/* <button
                               onClick={openChainModal}
                               style={{ display: 'flex', alignItems: 'center' }}
                               type="button"
                             >
-                              {chain.hasIcon && (
-                                <div
-                                  style={{
-                                    background: chain.iconBackground,
-                                    width: 12,
-                                    height: 12,
-                                    borderRadius: 999,
-                                    overflow: 'hidden',
-                                    marginRight: 4,
-                                  }}
-                                >
-                                  {chain.iconUrl && (
-                                    <img
-                                      alt={chain.name ?? 'Chain icon'}
-                                      src={chain.iconUrl}
-                                      style={{ width: 12, height: 12 }}
-                                    />
-                                  )}
-                                </div>
-                              )}
-                              {chain.name}
-                            </button>
-          
-                            <button onClick={openAccountModal} type="button">
-                              {account.displayName}
-                              {account.displayBalance
-                                ? ` (${account.displayBalance})`
-                                : ''}
-                            </button>
+                            </button> */}
+                            { open ?
+                            <button onClick={openAccountModal} type="button" className='justify-center font-sans text-sm bg-rainbow h-12 w-40 py-2 px-2 rounded-lg hover:opacity-80'>
+                            <img src='/assets/icons/pfp2.png' className='object-fill w-10 h-10 list-none float-left p-0 -mt-1'/>
+                              <span className='w-fit relative flex left-2 text-white font-sans font-semibold leading-8'>{account.displayName}</span>
+                            </button> 
+                            :
+                            <button onClick={openAccountModal} type="button" className='bg-rainbow w-10 h-10 flex item-center cursor-pointer rounded-lg hover:opacity-80'>
+                            <img src='/assets/icons/pfp2.png' className='p-2'/>
+                            </button> 
+                            }
                           </div>
                         );
                       })()}
@@ -136,23 +134,23 @@ function SideBar() {
             <li className={`flex item-center gap-x-4 cursor-pointer list-none mt-4 ml-2 ${!open && 'justify-center ml-0'}`}>
               {
                 open ?
-                <button onClick={handleModalOpen} className='justify-center font-space-bold text-l bg-greenLens h-12 w-40 text-darkGreenLens py-2 px-2 rounded-lg hover:bg-greenLens2'>
+                <button onClick={handleLensModalOpen} className='justify-center font-space-bold text-l bg-greenLens h-12 w-40 text-darkGreenLens py-2 px-2 rounded-lg hover:bg-greenLens2'>
                   <img className='object-fill w-10 h-10 list-none float-left p-0 -mt-1' src='/assets/lens/lensicon.png'/>
                      <span className='w-fit relative flex ml-5 leading-8'>Lens Sign in</span>
                 </button>
                 :
-                <button onClick={handleModalOpen} className='bg-greenLens flex item-center gap-x-4 cursor-pointer rounded-lg hover:bg-greenLens2 '>
+                <button onClick={handleLensModalOpen} className='bg-greenLens flex item-center gap-x-4 cursor-pointer rounded-lg hover:bg-greenLens2'>
                   <img className='object-fill w-10 h-10 list-none p-0' src='/assets/lens/lensicon.png'/>
                 </button>
               }
-              <LensModal visible={modal} setModal={setModal} />
+              <LensModal visible={lensModal} setLensModal={setLensModal} />
             </li>
             <li className={`flex item-center gap-x-4 cursor-pointer list-none mt-4 ml-2 ${!open && 'justify-center ml-0'}`}>
               {
                 open ?
                 <button onClick={data.handleFeedModal} className='justify-center font-space-bold text-l bg-lensLilac h-12 w-40 text-darkGreenLens py-2 px-2 rounded-lg hover:opacity-80'>
                   <img className='object-fill w-10 h-10 list-none float-left p-0 -mt-1' src='/assets/lens/grow.png'/>
-                     <span className={`w-fit relative flex ml-5 leading-8 ${modal && 'hidden'}`}>Scroll Feed</span>
+                     <span className={`w-fit relative flex ml-5 leading-8 ${lensModal && 'hidden'}`}>Scroll Feed</span>
                 </button>
                 :
                 <button onClick={data.handleFeedModal} className='bg-lensLilac flex item-center gap-x-4 cursor-pointer rounded-lg hover:opacity-80'>
@@ -161,16 +159,7 @@ function SideBar() {
               }
             </li>
           </ul>
-          <ul className="pt-10">
-            {Menu.map((menu, index) => (
-              <a key={index} href={`${menu.link}`} target="_blank" rel="noreferrer">
-              <li className={`text-gray-300 font-f25 text-sm flex item-center gap-x-4 cursor-pointer p-2 rounded-md ${menu.gap ? 'mt-9' : 'mt-2'} ${index === 0 && 'bg-lightGrey'} hover:bg-lightGrey`}>
-                <img src={`/assets/icons/${menu.src}.png`}/>
-                <span className={`${!open && 'hidden'} origin-left duration-200`}>{menu.title}</span>
-              </li>
-              </a>
-            ))}
-          </ul>
+            <MenuItems open={open} />
         </div>
     </div>
     </div>
