@@ -7,6 +7,9 @@ html {
   font-family: "Armata" sans-serif;
   font-family: 'Londrina Solid', cursive;
   width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 .leaflet-control-layers-toggle:after{ 

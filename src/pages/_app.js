@@ -37,6 +37,7 @@ function MyApp({ Component, pageProps }) {
   const [isLoading, setIsLoading] = useState(true);
   const [isFeedOpen, setIsFeedOpen] = useState(false);
   const [minimise, setMinimise] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleMinimise = () => {
     minimise ? setMinimise(false) : setMinimise(true);
@@ -86,6 +87,8 @@ function MyApp({ Component, pageProps }) {
               minimise: minimise,
               goDownToMintSection: goDownToMintSection,
               goDownToRenewables: goDownToRenewables,
+              open: open,
+              setOpen: setOpen,
             }}
           >
             <SideBar />

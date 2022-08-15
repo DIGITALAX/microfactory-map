@@ -9,7 +9,6 @@ function SideBar() {
 
   const data = useContext(contextApi);
 
-  const [open, setOpen] = useState(false);
   const [lensModal, setLensModal] = useState(false);
 
   const Menu = [
@@ -27,16 +26,16 @@ function SideBar() {
   return (
     <div className='float-left' >
     <div className='flex absolute z-10 ease-in-out'>
-        <div className={`${open ? 'w-72' : 'w-24'} h-screen p-5 pt-8 bg-darkGrey relative`}>
+        <div className={`${data.open ? 'w-72' : 'w-24'} h-screen p-5 pt-8 bg-darkGrey relative`}>
           <img src="/assets/icons/control.png" 
-          className={`absolute cursor-pointer rounded-full -right-3 top-9 w-7 border-2 border-darkGrey ${!open && 'rotate-180'}`}
-          onClick={()=>setOpen(!open)} />
+          className={`absolute cursor-pointer rounded-full -right-3 top-9 w-7 border-2 border-darkGrey ${!data.open && 'rotate-180'}`}
+          onClick={()=>data.setOpen(!data.open)} />
           <div className="flex gap-x-4 items-center ml-2">
             <img src="/assets/icons/logo.png" className={`cursor-pointer duration-500`}/>
-            <h1 className={`text-white origin-left font-f25 font-medium text-xl ${!open && 'scale-0'}`}>Mini Map</h1>
+            <h1 className={`text-white origin-left font-f25 font-medium text-xl ${!data.open && 'scale-0'}`}>Mini Map</h1>
           </div>
           <ul className="mt-12 pt-6 origin-left">
-            <li className={`flex item-center mb-4 gap-x-4 cursor-pointer list-none ml-2 ${!open && 'justify-center ml-0'}`}>
+            <li className={`flex item-center mb-4 gap-x-4 cursor-pointer list-none ml-2 ${!data.open && 'justify-center ml-0'}`}>
               <ConnectButton.Custom >
                 {({
                   account,
@@ -69,7 +68,7 @@ function SideBar() {
                       {(() => {
                         if (!mounted || !account || !chain || connectModalOpen) {
                           return (
-                            open ? 
+                            data.open ? 
                             <button onClick={openConnectModal} className='justify-center font-sans text-xl bg-rainbow h-12 w-40 py-2 px-2 rounded-lg hover:opacity-80' >
                               <img className='object-fill w-6 h-6 list-none float-left p-0 mt-1 ml-3' src='/assets/icons/rainbow-small.png'/>
                                 <span className="w-fit relative flex ml-12 text-12 leading-8 font-bold text-white">rainbow</span>
@@ -82,7 +81,7 @@ function SideBar() {
           
                         if (chain.unsupported) {
                           return (
-                            open ?
+                            data.open ?
                             <button onClick={openChainModal} type="button" className='justify-center font-sans text-sm bg-rainbow h-12 w-40 py-2 px-2 rounded-lg hover:opacity-80'>
                               <MdError className='object-fill w-4 top-1 relative h-4 list-none float-left p-0 mt-1 ml-2' color='white'/>
                                 <span className="w-fit relative flex ml-8 leading-8 font-bold text-white">Switch Network</span>
@@ -113,7 +112,7 @@ function SideBar() {
                               type="button"
                             >
                             </button> */}
-                            { open ?
+                            { data.open ?
                             <button onClick={openAccountModal} type="button" className='justify-center font-sans text-sm bg-rainbow h-12 w-40 py-2 px-2 rounded-lg hover:opacity-80'>
                             <img src='/assets/icons/pfp2.png' className='object-fill w-10 h-10 list-none float-left p-0 -mt-1'/>
                               <span className='w-fit relative flex left-2 text-white font-sans font-semibold leading-8'>{account.displayName}</span>
@@ -131,9 +130,9 @@ function SideBar() {
                 }}
               </ConnectButton.Custom>
             </li>
-            <li className={`flex item-center gap-x-4 cursor-pointer list-none mt-4 ml-2 ${!open && 'justify-center ml-0'}`}>
+            <li className={`flex item-center gap-x-4 cursor-pointer list-none mt-4 ml-2 ${!data.open && 'justify-center ml-0'}`}>
               {
-                open ?
+                data.open ?
                 <button onClick={handleLensModalOpen} className='justify-center font-spacebold text-l bg-greenLens h-12 w-40 text-darkGreenLens py-2 px-2 rounded-lg hover:bg-greenLens2'>
                   <img className='object-fill w-10 h-10 list-none float-left p-0 -mt-1' src='/assets/lens/lensicon.png'/>
                      <span className='w-fit relative flex ml-5 leading-8 font-spacebold'>Lens Sign in</span>
@@ -145,9 +144,9 @@ function SideBar() {
               }
               <LensModal visible={lensModal} setLensModal={setLensModal} />
             </li>
-            <li className={`flex item-center gap-x-4 cursor-pointer list-none mt-4 ml-2 ${!open && 'justify-center ml-0'}`}>
+            <li className={`flex item-center gap-x-4 cursor-pointer list-none mt-4 ml-2 ${!data.open && 'justify-center ml-0'}`}>
               {
-                open ?
+                data.open ?
                 <button onClick={data.handleFeedModal} className='justify-center font-spacebold text-l bg-lensLilac h-12 w-40 text-darkGreenLens py-2 px-2 rounded-lg hover:opacity-80'>
                   <img className='object-fill w-10 h-10 list-none float-left p-0 -mt-1' src='/assets/lens/grow.png'/>
                      <span className={`w-fit relative flex ml-5 leading-8 font-spacebold  ${lensModal && 'hidden'}`}>Scroll Feed</span>
@@ -159,7 +158,7 @@ function SideBar() {
               }
             </li>
           </ul>
-            <MenuItems goDownToRenewables={data.goDownToRenewables} goDownToMintSection={data.goDownToMintSection} open={open} />
+            <MenuItems goDownToRenewables={data.goDownToRenewables} goDownToMintSection={data.goDownToMintSection} open={data.open} />
         </div>
     </div>
     </div>

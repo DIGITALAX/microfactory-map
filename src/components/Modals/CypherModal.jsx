@@ -10,6 +10,12 @@ function CypherModal(props) {
 
   if(!props.visible) return null;
 
+  const closeAndMint = () => {
+    props.goDownToMintSection();
+    props.setCypherModal(false);
+  }
+
+
   return (
   <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center">
     <div className="relative bg-lensDarkGrey p-2 rounded w-96">
@@ -23,7 +29,7 @@ function CypherModal(props) {
       </h1>
       <div className="text-center">
         <button className="px-5 py-2 bg-stone-400 text-xl font-npress text-lensDarkGrey mb-3 rounded hover:opacity-80"
-        onClick={props.goDownToMintSection}
+        onClick={closeAndMint}
         >
           Collect
         </button>

@@ -76,7 +76,7 @@ function Common() {
       <section
         className="mt-0 text-white md:mt-36 pt-20 w-full flex flex-col items-center"
       >
-        <div className="w-1/2 lg:w-700px text-7xl md:text-6xl lg:text-60px text-center mt-20">
+        <div className="w-1/2 sm:text-sm lg:w-700px md:text-6xl lg:text-60px text-center mt-20">
           DO YOU REALLY NEED TO READ THE INSTRUCTION MANUAL?
         </div>
         <div className="w-1/2 lg:w-700px text-xl md:text-3xl lg:text-4xl text-center mt-16">

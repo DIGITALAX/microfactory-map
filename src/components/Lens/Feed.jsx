@@ -40,27 +40,6 @@ function Feed(props) {
         setPublicationsFeed(pubs => ([...pubs, ...data]));
     }
 
-    // const currentPage = useRef(0)
-
-    //console.log(publicationsFeed.length, publicationsFeed?.map())
-
-
-    // (async ()=> {
-    //     console.log('useEffect fetching')
-    //     if(loading) return
-    //     if(!publicationsFeed.length || nearingBottom) {
-    //         setNearingBottom(false)
-    //         setLoading(true)
-    //         currentPage.current++
-    //         console.log('fetching....')
-    //         const data = await fetchPublications()
-    //         console.log(data.map(i => i.id))
-    //         setPublicationsFeed(pubs => [...pubs, ...data]);
-    //         setLoading(false)
-    //     }
-    // },[nearingBottom, setNearingBottom]);
-
-
   return (
     <InfiniteScroll
     dataLength={publicationsFeed.length}
@@ -93,10 +72,12 @@ function Feed(props) {
                         <div className='text-space text-xs inline-block align-middle font-sans mt-1.5 ml-2'>{moment(`${publication.createdAt}`).fromNow()}</div>
                         </div>
                         <div className='mt-6 mb-8 rounded pt-4 pl-8 pr-8 pb-4 border-solid border bg-lensGrey border-lensGrey drop-shadow-md'>
-                            <JSONPretty data={publication.metadata.content}/>
-                            {/* {publication.metadata.media?.original?.map((image, index) => ( */}
-                            { publication.metadata.media.original?.url === null ? null : <img key={index} src={`${publication.metadata.media?.original?.url}`}/>
-                            }
+                           { <JSONPretty data={publication.metadata.content}/> }
+                            {/* {publication.metadata.media === 0 ? null
+                                : publication.metadata.media.original
+                                ? <img src={publication.metadata.media.original?.url} alt={publication.id} className='w-8 h-8 rounded-full drop-shadow-md'/>
+                                : <img src={publication.metadata.media.original?.uri} alt={publication.id} className='w-8 h-8 rounded-full drop-shadow-md'/>
+                            } */}
                                 <a href={`https://lenster.xyz/posts/${publication.id}`} target="_blank" rel="noreferrer">
                                 <ul className='mt-2 inline-block cursor-pointer font-sans'>
                                 <li className='float-left m-1 ml-0'>
