@@ -15,13 +15,50 @@ function Feed(props) {
     async function fetchPublications() {
         try {
             // pass id as object since reuqest in api id also passed as object
-            const response = await client.query(randomPublications).toPromise();
+            const response = await client.query(randomPublications, {
+                request: {
+                    sortCriteria: 'LATEST', 
+                    publicationTypes: ['POST','MIRROR'], 
+                    limit: 30,
+                }
+            }).toPromise();
             console.log(response.data.explorePublications.items);
             return response.data.explorePublications.items;
 
         } catch (err) {
             console.log(err)
         }
+    };
+
+    const getAvatar = (profile) => {
+
+        if (!profile.picture) {
+            return <CgProfile color='#00501e' className='w-8 h-8 rounded-full drop-shadow-md'/>
+        } else if (profile.picture.original) {
+            if (profile.picture.original.url.includes("http")) {
+                return <img src={profile.picture.original.url} alt={profile.name} className='w-8 h-8 rounded-full drop-shadow-md'/>
+            } else {
+                const cut = profile.picture.original.url.split("/");
+                const link = "https://lens.infura-ipfs.io/ipfs/" + cut[cut.length-1]
+                console.log(link);
+                return <img src={link} alt={profile.name} className='w-8 h-8 rounded-full drop-shadow-md'/>
+            }
+        } else {
+                return <img src={profile.picture.uri} alt={profile.name} className='w-8 h-8 rounded-full drop-shadow-md'/>
+        }
+    };
+
+
+    const checkImage = (media) => {
+
+        if (media.original.url.includes("http")) {
+                return <img src={media.original.url} alt={"media"} />
+            } else {
+                const cut = media.original.url.split("/");
+                const link = "https://lens.infura-ipfs.io/ipfs/" + cut[cut.length-1]
+                console.log(link);
+                return <img src={link} alt={"media"}/>
+            }
     };
 
 
@@ -36,7 +73,8 @@ function Feed(props) {
         const data = await fetchPublications();
 
         setPublicationsFeed(pubs => ([...pubs, ...data]));
-    }
+    };
+
 
   return (
     <InfiniteScroll
@@ -53,14 +91,7 @@ function Feed(props) {
                     <div key={index}>
                         <div className='w-12 float-left'>
                         <a href={`https://lenster.xyz/u/${publication.profile.handle}`}  target="_blank" rel="noreferrer">
-                        {!publication.profile.picture
-                            ? <CgProfile 
-                            color='#00501e'
-                            className='w-8 h-8 rounded-full drop-shadow-md'/>
-                            : publication.profile.picture.original
-                            ? <img src={publication.profile.picture.original.url} alt={publication.profile.name} className='w-8 h-8 rounded-full drop-shadow-md'/>
-                            : <img src={publication.profile.picture.uri} alt={publication.profile.name} className='w-8 h-8 rounded-full drop-shadow-md'/>
-                        }
+                        {getAvatar(publication.profile)}
                         </a>
                         </div>
                         <div>
@@ -70,7 +101,16 @@ function Feed(props) {
                         <div className='text-space text-xs inline-block align-middle font-sans mt-1.5 ml-2'>{moment(`${publication.createdAt}`).fromNow()}</div>
                         </div>
                         <div className='mt-6 font-sans mb-8 rounded pt-4 pl-8 pr-8 pb-4 border-solid border bg-lensGrey border-lensGrey drop-shadow-md'>
-                           <JSONPretty data={publication.metadata.content}/>
+                           {publication.metadata.content}
+                           {publication.metadata.media.map((media, index) => (
+                                media.original.mimeType.includes("image")
+                                ? checkImage(media)
+                                : (
+                                    <video controls>
+                                        <source src={media.original.url} alt={"media"} key={index} type={media.original.mimeType} />
+                                    </video>
+                                )
+                            ))}
                                 <a href={`https://lenster.xyz/posts/${publication.id}`} target="_blank" rel="noreferrer">
                                 <ul className='mt-2 inline-block cursor-pointer font-sans'>
                                 <li className='float-left m-1 ml-0'>

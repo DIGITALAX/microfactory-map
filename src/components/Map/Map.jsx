@@ -108,7 +108,7 @@ function Map() {
     return null
   };
 
-  const [checkedValue, setCheckedValue] = useState("Channels");
+  const [checkedValue, setCheckedValue] = useState("All");
 
   // toggle icons boolean
   const CheckedListener = () => {

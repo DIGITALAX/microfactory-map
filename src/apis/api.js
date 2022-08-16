@@ -8,12 +8,10 @@ export const client = new createClient({
 });
 
 // limit can be changed
-export const randomPublications = `query ExplorePublications {
-  explorePublications(request: {
-    sortCriteria: TOP_COMMENTED,
-    publicationTypes: [POST, COMMENT, MIRROR],
-    limit: 30
-  }) {
+export const randomPublications = `query ExplorePublications($request: ExplorePublicationRequest!) {
+  explorePublications(
+    request: $request
+  ) {
     items {
       __typename 
       ... on Post {

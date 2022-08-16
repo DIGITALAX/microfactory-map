@@ -60,7 +60,7 @@ function MyApp({ Component, pageProps }) {
 
   const goDownToMintSection = () => {
     window.scrollBy({
-      top: findPos(document.getElementById("mint-section")),
+      top: findPos(document.getElementById("mintSection")),
       behavior: "smooth",
     });
   };

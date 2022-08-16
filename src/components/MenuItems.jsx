@@ -35,11 +35,11 @@ function MenuItems(props) {
       </li>
       <GuildModal goDownToMintSection={props.goDownToMintSection} visible={guildModal} setGuildModal={setGuildModal} />
       <li className={`text-gray-300 font-f25 text-sm flex item-center gap-x-4 cursor-pointer p-2 rounded-md mt-2 hover:bg-lightGrey`}>
-        <img src={`./assets/icons/user-guide.png`} className='w-6 h-6'/>
+        <img onClick={props.goDownToMintSection} src={`./assets/icons/user-guide.png`} className='w-6 h-6'/>
         <span onClick={props.goDownToMintSection} className={`${!props.open && 'hidden'} origin-left duration-200`}>Instructables</span>
       </li>
       <li className={`text-gray-300 font-f25 text-sm flex item-center gap-x-4 cursor-pointer p-2 rounded-md mt-2 hover:bg-lightGrey`}>
-        <img src={`./assets/images/renew2.png`} className='w-6 h-6'/>
+        <img onClick={props.goDownToRenewables} src={`./assets/images/renew2.png`} className='w-6 h-6'/>
         <span onClick={props.goDownToRenewables} className={`${!props.open && 'hidden'} origin-left duration-200`}>Renewables</span>
       </li>
       <li onClick={handleCypherModalOpen} className={`text-gray-300 font-f25 text-sm flex item-center gap-x-4 cursor-pointer p-2 rounded-md mt-2 hover:bg-lightGrey`}>

@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react';
 import { contextApi } from '../../pages/_app';
 
-function Common() {
+function Common(ref) {
 
   const data = useContext(contextApi);
 
@@ -98,7 +98,7 @@ function Common() {
       <section
         className="mt-0 text-white md:mt-16 pb-48 pt-20 w-full flex flex-col items-center"
       >
-      <div id="mint-section" className="sm:w-1/2 w-4/6 lg:w-1/2 text-xl sm:text-lg md:text-3xl lg:text-5xl text-center mt-16 font-npress">
+      <div id="mintSection" className="sm:w-1/2 w-4/6 lg:w-1/2 text-xl sm:text-lg md:text-3xl lg:text-5xl text-center mt-16 font-npress">
       Each instructable collected, shared and recycled puts another pixel brick on the build map for a hyper-local web3 microfactory, virtually, and possibly IRL, near you.
         </div>
         <div className="mt-8 text-center">
@@ -109,7 +109,7 @@ function Common() {
             Mint Live Soon
           </button>
           <p className={`w-fit relative flex ml-5 leading-8 font-spacebold  ${!styleState && 'hidden'}`} >
-          <a href="https://port15.digifizzy.xyz/magazines/15/" target="_blank" rel="noreferrer"  className='font-opress -left-[7.5rem] sm:-left-24 w-72 m-4 absolute text-2xl text-white'>Read DIGIFIZZY while you wait.</a>
+          <a href="https://port15.digifizzy.xyz/magazines/15/" target="_blank" rel="noreferrer"  className='font-opress -left-[7.2rem] digifizzy:-left-[7.5rem] w-72 m-4 absolute text-2xl text-white'>Read DIGIFIZZY while you wait.</a>
           </p>
         </div>
       </section>

@@ -38,6 +38,9 @@ module.exports = {
         "gradient-radial":
           "radial-gradient(56.48% 56.48% at 50% 50%, #153F93 0%, #01215D 100%)",
       },
+      screens: {
+        digifizzy: "200px",
+      },
       keyframes: {
         pulse2: {
           "0%": {
