@@ -92,6 +92,7 @@ function Map() {
   const filteredOutposts = mapLocationData.filter(item => item.type === "Outposts");
   const filteredChannels = mapLocationData.filter(item => item.type === "Channels");
 
+
   // Marker on click
   const [clickPosition, setClickPosition] = useState(null);
   const [clickedMarker, setClickedMarker] = useState(null);
@@ -100,27 +101,13 @@ function Map() {
 
   const FlyToMarker = () => {
 
-    const map = useMap()
+    const map = useMap();
 
-    map.flyTo(clickPosition, 15)
+    map.flyTo(clickPosition, 15);
     setFlyToInput(false);
 
     return null
-  }
-
-
-  const [checkedValue, setCheckedValue] = useState("Channels");
-
-  // toggle icons boolean
-  const CheckedListener = () => {
-    useMapEvents({
-      overlayadd(e) {
-        setCheckedValue(e.name)
-      }
-    })
-
-    return(null)
-  }
+  };
 
   return (
     <div>
@@ -134,14 +121,15 @@ function Map() {
         />
         <ZoomControl position='topright' zoomInText="" zoomOutText='hi'/>
 
-        <CheckedListener />
         { flyToInput ?
         <FlyToMarker /> :
         null
         }
 
         <LayersControl position='topright' >
-          <LayersControl.Overlay name="Aisles" checked={checkedValue === "Aisles" ? true : false} >
+          <LayersControl.Overlay name="All" >
+            <LayerGroup>
+          <LayersControl.Overlay name="Aisles" checked={true}>
             <LayerGroup>
             {
               filteredAisles.map((mapLocation)=>(
@@ -167,7 +155,7 @@ function Map() {
             }
             </LayerGroup> 
           </LayersControl.Overlay>
-          <LayersControl.Overlay name="Paths" checked={checkedValue === "Paths" ? true: false}>
+          <LayersControl.Overlay name="Paths" checked={true}>
             <LayerGroup>
             {
               filteredPaths.map((mapLocation)=>(
@@ -193,7 +181,7 @@ function Map() {
             }
             </LayerGroup> 
           </LayersControl.Overlay>
-          <LayersControl.Overlay name="Arcades" checked={checkedValue === "Arcades" ? true: false}>
+          <LayersControl.Overlay name="Arcades" checked={true}>
             <LayerGroup>
             {
               filteredArcades.map((mapLocation)=>(
@@ -219,7 +207,7 @@ function Map() {
             }
             </LayerGroup> 
           </LayersControl.Overlay>
-          <LayersControl.Overlay name="Passages" checked={checkedValue === "Passages" ? true: false}>
+          <LayersControl.Overlay name="Passages" checked={true}>
             <LayerGroup>
             {
               filteredPassages.map((mapLocation)=>(
@@ -245,7 +233,7 @@ function Map() {
             }
             </LayerGroup> 
           </LayersControl.Overlay>
-          <LayersControl.Overlay name="Corridors" checked={checkedValue === "Corridors" ? true: false}>
+          <LayersControl.Overlay name="Corridors" checked={true}>
             <LayerGroup>
             {
               filteredCorridors.map((mapLocation)=>(
@@ -271,7 +259,7 @@ function Map() {
             }
             </LayerGroup> 
           </LayersControl.Overlay>
-          <LayersControl.Overlay name="Dromoi" checked={checkedValue === "Dromoi" ? true: false}>
+          <LayersControl.Overlay name="Dromoi" checked={true}>
             <LayerGroup>
             {
               filteredDromoi.map((mapLocation)=>(
@@ -297,7 +285,7 @@ function Map() {
             }
             </LayerGroup> 
           </LayersControl.Overlay>
-          <LayersControl.Overlay name="Facades" checked={checkedValue === "Facades" ? true: false}>
+          <LayersControl.Overlay name="Facades" checked={true}>
             <LayerGroup>
             {
               filteredFacades.map((mapLocation)=>(
@@ -323,7 +311,7 @@ function Map() {
             }
             </LayerGroup> 
           </LayersControl.Overlay>
-          <LayersControl.Overlay name="Labyrinths" checked={checkedValue === "Labyrinths" ? true: false}>
+          <LayersControl.Overlay name="Labyrinths" checked={true}>
             <LayerGroup>
             {
               filteredLabyrinths.map((mapLocation)=>(
@@ -349,7 +337,7 @@ function Map() {
             }
             </LayerGroup> 
           </LayersControl.Overlay>
-          <LayersControl.Overlay name="PortHoles" checked={checkedValue === "PortHoles" ? true: false}>
+          <LayersControl.Overlay name="PortHoles" checked={true}>
             <LayerGroup>
             {
               filteredPortHoles.map((mapLocation)=>(
@@ -375,7 +363,7 @@ function Map() {
             }
             </LayerGroup> 
           </LayersControl.Overlay>
-          <LayersControl.Overlay name="Beacons" checked={checkedValue === "Beacons" ? true: false}>
+          <LayersControl.Overlay name="Beacons" checked={true}>
             <LayerGroup>
             {
               filteredBeacons.map((mapLocation)=>(
@@ -401,7 +389,7 @@ function Map() {
             }
             </LayerGroup> 
           </LayersControl.Overlay>
-          <LayersControl.Overlay name="Hatches" checked={checkedValue === "Hatches" ? true: false}>
+          <LayersControl.Overlay name="Hatches" checked={true}>
             <LayerGroup>
             {
               filteredHatches.map((mapLocation)=>(
@@ -427,7 +415,7 @@ function Map() {
             }
             </LayerGroup> 
           </LayersControl.Overlay>
-          <LayersControl.Overlay name="Outposts" checked={checkedValue === "Outposts" ? true: false}>
+          <LayersControl.Overlay name="Outposts" checked={true}>
             <LayerGroup>
             {
               filteredOutposts.map((mapLocation)=>(
@@ -453,7 +441,7 @@ function Map() {
             }
             </LayerGroup> 
           </LayersControl.Overlay>
-          <LayersControl.Overlay name="Channels" checked={checkedValue === "Channels" ? true: false}>
+          <LayersControl.Overlay name="Channels" checked={true}>
             <LayerGroup>
             {
               filteredChannels.map((mapLocation)=>(
@@ -478,6 +466,8 @@ function Map() {
               ))
             }
             </LayerGroup> 
+          </LayersControl.Overlay>
+          </LayerGroup>
           </LayersControl.Overlay>
         </LayersControl>
 

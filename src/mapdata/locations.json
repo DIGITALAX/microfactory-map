@@ -6,7 +6,6 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": 40.711080,
       "longitude": -73.935840,
-      "src": "/assets/images/portals/portal1.gif",
       "type": "PortHoles"
     },
     {
@@ -16,7 +15,6 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": 40.716510,
       "longitude": -73.995010,
-      "src": "/assets/images/portals/portal1.gif",
       "type": "Beacons"
     },
     {
@@ -26,7 +24,6 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": 40.628780,
       "longitude": -73.903720,
-      "src": "/assets/images/portals/portal1.gif",
       "type": "PortHoles"
     },
     {
@@ -36,7 +33,6 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": 40.718250,
       "longitude": -73.988830,
-      "src": "/assets/images/portals/portal1.gif",
       "type": "PortHoles"
     },
     {
@@ -46,7 +42,6 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": 40.740330,
       "longitude": -73.993790,
-      "src": "/assets/images/portals/portal1.gif",
       "type": "Hatches"
     },
     {
@@ -56,7 +51,6 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": 40.7191187,
       "longitude": -73.996449,
-      "src": "/assets/images/portals/portal1.gif",
       "type": "Hatches"
     },
     {
@@ -66,7 +60,6 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": 40.715955,
       "longitude": -73.9963513,
-      "src": "/assets/images/portals/portal1.gif",
       "type": "Beacons"
     },
     {
@@ -76,7 +69,6 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": 40.7303964,
       "longitude": -73.9588707,
-      "src": "/assets/images/portals/portal1.gif",
       "type": "Outposts"
     },
     {
@@ -96,7 +88,6 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": 40.739070892333984,
       "longitude": -73.9318618774414,
-      "src": "/assets/images/portals/portal1.gif",
       "type": "Channels"
     },
     {
@@ -106,7 +97,6 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": 40.6983546,
       "longitude": -73.9613929,
-      "src": "/assets/images/portals/portal1.gif",
       "type": "Outposts"
     },
     {
@@ -126,7 +116,6 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": 40.63439,
       "longitude": -73.95027,
-      "src": "/assets/images/portals/portal1.gif",
       "type": "PortHoles"
     },
     {
@@ -136,7 +125,6 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": 40.750579833984375,
       "longitude": -73.94552612304688,
-      "src": "/assets/images/portals/portal1.gif",
       "type": "Hatches"
     },
     {
@@ -146,7 +134,6 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": 40.65959167480469,
       "longitude": -74.00244903564453,
-      "src": "/assets/images/portals/portal1.gif",
       "type": "Beacons"
     },
     {
@@ -156,7 +143,6 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": 40.722848,
       "longitude": -73.908413,
-      "src": "/assets/images/portals/portal1.gif",
       "type": "Beacons"
     },
     {
@@ -166,7 +152,6 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": 40.7416602,
       "longitude": -74.0066138,
-      "src": "/assets/images/portals/portal1.gif",
       "type": "Hatches"
     },
     {
@@ -176,7 +161,6 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": 40.7375064,
       "longitude": -73.9541305,
-      "src": "/assets/images/portals/portal1.gif",
       "type": "Hatches"
     },
     {
@@ -186,7 +170,6 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": 40.710527,
       "longitude": -73.934668,
-      "src": "/assets/images/portals/portal1.gif",
       "type": "Channels"
     },
     {
@@ -196,7 +179,6 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": 40.7094234,
       "longitude": -73.9356303,
-      "src": "/assets/images/portals/portal1.gif",
       "type": "Channels"
     },
     {
@@ -206,7 +188,6 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": 40.7108381,
       "longitude": -73.9338066,
-      "src": "/assets/images/portals/portal1.gif",
       "type": "Outposts"
     },
     {
@@ -216,7 +197,6 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": 40.7304395,
       "longitude": -73.9503978,
-      "src": "/assets/images/portals/portal1.gif",
       "type": "Hatches"
     },
     {
@@ -226,7 +206,6 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": 40.6533303,
       "longitude": -74.0071503,
-      "src": "/assets/images/portals/portal1.gif",
       "type": "Beacons"
     },
     {
@@ -236,7 +215,6 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": 40.718027,
       "longitude": -73.964322,
-      "src": "/assets/images/portals/portal1.gif",
       "type": "Beacons"
     },
     {
@@ -246,7 +224,6 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": 40.7512232,
       "longitude": -74.0044843,
-      "src": "/assets/images/portals/portal1.gif",
       "type": "PortHoles"
     },
     {
@@ -256,17 +233,15 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": 40.7226262,
       "longitude": -74.0004102,
-      "src": "/assets/images/portals/portal1.gif",
       "type": "Outposts"
     },
     {
       "id": 27,
-      "story": "3601 N.W. 27th Avenue",
-      "prompt":"",
+      "story": "Suddenly, the navigator came across a node in the network that they hadn't seen before.  It was a small, delicate node, almost hidden among the others in the network. Connecting the flow of information and resources between coordinates isn’t easy, but with a little care this node would do just fine.",
+      "prompt":"A beautiful illustration in stunning detail of a techno-futurist navigator exploring new realms, by Joshua Mays, trending on artstation, behance, photorealism, Deep depth of ﬁeld, f/22, 35mm.",
       "nodeStatus": "Node Activation Pending",
       "latitude": 40.6565711,
       "longitude": -74.0135739,
-      "src": "/assets/images/portals/portal1.gif",
       "type": "Outposts"
     },
     {
@@ -276,7 +251,6 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": 40.661277770996094,
       "longitude": -73.96114349365234,
-      "src": "/assets/images/portals/portal1.gif",
       "type": "Hatches"
     },
     {
@@ -286,7 +260,6 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": 40.7023246,
       "longitude": -73.9814698,
-      "src": "/assets/images/portals/portal1.gif",
       "type": "Beacons"
     },
     {
@@ -296,7 +269,6 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": 40.7363517,
       "longitude": -73.9889315,
-      "src": "/assets/images/portals/portal1.gif",
       "type": "PortHoles"
     },
     {
@@ -306,7 +278,6 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": 40.699987,
       "longitude": -73.9798016,
-      "src": "/assets/images/portals/portal1.gif",
       "type": "Outposts"
     },
     {
@@ -316,7 +287,6 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": 40.6873234,
       "longitude": -73.9795839,
-      "src": "/assets/images/portals/portal1.gif",
       "type": "Channels"
     },
     {
@@ -326,7 +296,177 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": 40.727535247802734,
       "longitude": -73.993408203125,
-      "src": "/assets/images/portals/portal1.gif",
       "type": "Channels"
+    },
+    {
+      "id": 34,
+      "story": "A fearsome and shadowy beast made entirely of code, had been stalking the digital plains for years, devouring data whole and leaving nothing but gibberish in its wake. But this time, it left behind a key.",
+      "prompt":"A beautiful illustration in stunning detail of a fearsome and shadowy beast made entirely of code that has been searching the digital plains for years, devouring data whole and leaving nothing but gibberish and keys in its wake, by Miyazaki and Moebius, trending on artstation, Deep depth of ﬁeld, f/22, 35mm.",
+      "nodeStatus": "Node Activation Pending",
+      "latitude": -34.586360931396484,
+      "longitude": -58.43980407714844,
+      "type": "Labyrinths"
+    },
+    {
+      "id": 35,
+      "story": "A fearsome and shadowy beast made entirely of code, had been stalking the digital plains for years, devouring data whole and leaving nothing but gibberish in its wake. But this time, it left behind a key.",
+      "prompt":"A beautiful illustration in stunning detail of a fearsome and shadowy beast made entirely of code that has been searching the digital plains for years, devouring data whole and leaving nothing but gibberish and keys in its wake, by Miyazaki and Moebius, trending on artstation, Deep depth of ﬁeld, f/22, 35mm.",
+      "nodeStatus": "Node Activation Pending",
+      "latitude": -34.5829472,
+      "longitude": -58.419158,
+      "type": "Labyrinths"
+    },
+    {
+      "id": 36,
+      "story": "The cryptographer had always been fascinated by the unexplored bits. As they navigated through the wild sectors of unenumerated maps, a close kind of graph was pinging nostalgia now.",
+      "prompt":"A beautiful illustration in stunning detail of a dreamlike conversation between a cartographer and a cryptographer, by Goro Fujita, trending on artstation.",
+      "nodeStatus": "Node Activation Pending",
+      "latitude": -34.5927782,
+      "longitude": -58.4197877,
+      "type": "PortHoles"
+    },
+    {
+      "id": 37,
+      "story": "A fearsome and shadowy beast made entirely of code, had been stalking the digital plains for years, devouring data whole and leaving nothing but gibberish in its wake. But this time, it left behind a key.",
+      "prompt":"A beautiful illustration in stunning detail of a fearsome and shadowy beast made entirely of code that has been searching the digital plains for years, devouring data whole and leaving nothing but gibberish and keys in its wake, by Miyazaki and Moebius, trending on artstation, Deep depth of ﬁeld, f/22, 35mm.",
+      "nodeStatus": "Node Activation Pending",
+      "latitude": -34.594799,
+      "longitude": -58.4236461,
+      "type": "Labyrinths"
+    },
+    {
+      "id": 38,
+      "story": "A fearsome and shadowy beast made entirely of code, had been stalking the digital plains for years, devouring data whole and leaving nothing but gibberish in its wake. But this time, it left behind a key.",
+      "prompt":"A beautiful illustration in stunning detail of a fearsome and shadowy beast made entirely of code that has been searching the digital plains for years, devouring data whole and leaving nothing but gibberish and keys in its wake, by Miyazaki and Moebius, trending on artstation, Deep depth of ﬁeld, f/22, 35mm.",
+      "nodeStatus": "Node Activation Pending",
+      "latitude": -34.5144361,
+      "longitude": -58.5181048,
+      "type": "Labyrinths"
+    },
+    {
+      "id": 39,
+      "story": "A fearsome and shadowy beast made entirely of code, had been stalking the digital plains for years, devouring data whole and leaving nothing but gibberish in its wake. But this time, it left behind a key.",
+      "prompt":"A beautiful illustration in stunning detail of a fearsome and shadowy beast made entirely of code that has been searching the digital plains for years, devouring data whole and leaving nothing but gibberish and keys in its wake, by Miyazaki and Moebius, trending on artstation, Deep depth of ﬁeld, f/22, 35mm.",
+      "nodeStatus": "Node Activation Pending",
+      "latitude": -34.5829472,
+      "longitude": -58.419158,
+      "type": "Labyrinths"
+    },
+    {
+      "id": 40,
+      "story": "The cryptographer had always been fascinated by the unexplored bits. As they navigated through the wild sectors of unenumerated maps, a close kind of graph was pinging nostalgia now.",
+      "prompt":"A beautiful illustration in stunning detail of a dreamlike conversation between a cartographer and a cryptographer, by Goro Fujita, trending on artstation.",
+      "nodeStatus": "Node Activation Pending",
+      "latitude": -34.5144361,
+      "longitude": -58.5181048,
+      "type": "PortHoles"
+    },
+    {
+      "id": 41,
+      "story": "A fearsome and shadowy beast made entirely of code, had been stalking the digital plains for years, devouring data whole and leaving nothing but gibberish in its wake. But this time, it left behind a key.",
+      "prompt":"A beautiful illustration in stunning detail of a fearsome and shadowy beast made entirely of code that has been searching the digital plains for years, devouring data whole and leaving nothing but gibberish and keys in its wake, by Miyazaki and Moebius, trending on artstation, Deep depth of ﬁeld, f/22, 35mm.",
+      "nodeStatus": "Node Activation Pending",
+      "latitude": -34.6036365,
+      "longitude": -58.3779315,
+      "type": "Labyrinths"
+    },
+    {
+      "id": 42,
+      "story": "What they found there has changed everything we knew about the verse… and could even hold the key to unraveling our physical world too. Deep within the heart of web3 are countless gates leading off into unknown realms.",
+      "prompt":"A beautiful illustration in stunning detail of a large glowing heart made of fabric and pixels with a lock and key at its center, surrounded by ring shaped gates to alternate realities, by M. W. Kaluta + Angus McKie, trending on artstation, Deep depth of ﬁeld, f/22, 35mm.",
+      "nodeStatus": "Node Activation Pending",
+      "latitude": -34.6036365,
+      "longitude": -58.3779315,
+      "type": "Facades"
+    },
+    {
+      "id": 43,
+      "story": "The cryptographer had always been fascinated by the unexplored bits. As they navigated through the wild sectors of unenumerated maps, a close kind of graph was pinging nostalgia now.",
+      "prompt":"A beautiful illustration in stunning detail of a dreamlike conversation between a cartographer and a cryptographer, by Goro Fujita, trending on artstation.",
+      "nodeStatus": "Node Activation Pending",
+      "latitude": -34.8824477,
+      "longitude": -58.3835108,
+      "type": "PortHoles"
+    },
+    {
+      "id": 44,
+      "story": "A fearsome and shadowy beast made entirely of code, had been stalking the digital plains for years, devouring data whole and leaving nothing but gibberish in its wake. But this time, it left behind a key.",
+      "prompt":"A beautiful illustration in stunning detail of a fearsome and shadowy beast made entirely of code that has been searching the digital plains for years, devouring data whole and leaving nothing but gibberish and keys in its wake, by Miyazaki and Moebius, trending on artstation, Deep depth of ﬁeld, f/22, 35mm.",
+      "nodeStatus": "Node Activation Pending",
+      "latitude": -34.61315,
+      "longitude": -58.37723,
+      "type": "Facades"
+    },
+    {
+      "id": 45,
+      "story": "A fearsome and shadowy beast made entirely of code, had been stalking the digital plains for years, devouring data whole and leaving nothing but gibberish in its wake. But this time, it left behind a key.",
+      "prompt":"A beautiful illustration in stunning detail of a fearsome and shadowy beast made entirely of code that has been searching the digital plains for years, devouring data whole and leaving nothing but gibberish and keys in its wake, by Miyazaki and Moebius, trending on artstation, Deep depth of ﬁeld, f/22, 35mm.",
+      "nodeStatus": "Node Activation Pending",
+      "latitude": -34.5144361,
+      "longitude": -58.5181048,
+      "type": "Facades"
+    },
+    {
+      "id": 46,
+      "story": "A fearsome and shadowy beast made entirely of code, had been stalking the digital plains for years, devouring data whole and leaving nothing but gibberish in its wake. But this time, it left behind a key.",
+      "prompt":"A beautiful illustration in stunning detail of a fearsome and shadowy beast made entirely of code that has been searching the digital plains for years, devouring data whole and leaving nothing but gibberish and keys in its wake, by Miyazaki and Moebius, trending on artstation, Deep depth of ﬁeld, f/22, 35mm.",
+      "nodeStatus": "Node Activation Pending",
+      "latitude": -34.6129228,
+      "longitude": -58.384605,
+      "type": "Labyrinths"
+    },
+    {
+      "id": 47,
+      "story": "A fearsome and shadowy beast made entirely of code, had been stalking the digital plains for years, devouring data whole and leaving nothing but gibberish in its wake. But this time, it left behind a key.",
+      "prompt":"A beautiful illustration in stunning detail of a fearsome and shadowy beast made entirely of code that has been searching the digital plains for years, devouring data whole and leaving nothing but gibberish and keys in its wake, by Miyazaki and Moebius, trending on artstation, Deep depth of ﬁeld, f/22, 35mm.",
+      "nodeStatus": "Node Activation Pending",
+      "latitude": -34.61152267456055,
+      "longitude": -58.421024322509766,
+      "type": "Facades"
+    },
+    {
+      "id": 48,
+      "story": "A fearsome and shadowy beast made entirely of code, had been stalking the digital plains for years, devouring data whole and leaving nothing but gibberish in its wake. But this time, it left behind a key.",
+      "prompt":"A beautiful illustration in stunning detail of a fearsome and shadowy beast made entirely of code that has been searching the digital plains for years, devouring data whole and leaving nothing but gibberish and keys in its wake, by Miyazaki and Moebius, trending on artstation, Deep depth of ﬁeld, f/22, 35mm.",
+      "nodeStatus": "Node Activation Pending",
+      "latitude": -34.54767990112305,
+      "longitude": -58.47219467163086,
+      "type": "Labyrinths"
+    },
+    {
+      "id": 49,
+      "story": "A fearsome and shadowy beast made entirely of code, had been stalking the digital plains for years, devouring data whole and leaving nothing but gibberish in its wake. But this time, it left behind a key.",
+      "prompt":"A beautiful illustration in stunning detail of a fearsome and shadowy beast made entirely of code that has been searching the digital plains for years, devouring data whole and leaving nothing but gibberish and keys in its wake, by Miyazaki and Moebius, trending on artstation, Deep depth of ﬁeld, f/22, 35mm.",
+      "nodeStatus": "Node Activation Pending",
+      "latitude": -33.0335075,
+      "longitude": -60.6072045,
+      "type": "Facades"
+    },
+    {
+      "id": 50,
+      "story": "What they found there has changed everything we knew about the verse… and could even hold the key to unraveling our physical world too. Deep within the heart of web3 are countless gates leading off into unknown realms.",
+      "prompt":"A beautiful illustration in stunning detail of a large glowing heart made of fabric and pixels with a lock and key at its center, surrounded by ring shaped gates to alternate realities, by M. W. Kaluta + Angus McKie, trending on artstation, Deep depth of ﬁeld, f/22, 35mm.",
+      "nodeStatus": "Node Activation Pending",
+      "latitude": 19.43471,
+      "longitude": -99.20091,
+      "type": "Dromoi"
+    },
+    {
+      "id": 51,
+      "story": "What they found there has changed everything we knew about the verse… and could even hold the key to unraveling our physical world too. Deep within the heart of web3 are countless gates leading off into unknown realms.",
+      "prompt":"A beautiful illustration in stunning detail of a large glowing heart made of fabric and pixels with a lock and key at its center, surrounded by ring shaped gates to alternate realities, by M. W. Kaluta + Angus McKie, trending on artstation, Deep depth of ﬁeld, f/22, 35mm.",
+      "nodeStatus": "Node Activation Pending",
+      "latitude": 19.3487,
+      "longitude": -99.166,
+      "type": "Dromoi"
+    },
+    {
+      "id": 52,
+      "story": "What they found there has changed everything we knew about the verse… and could even hold the key to unraveling our physical world too. Deep within the heart of web3 are countless gates leading off into unknown realms.",
+      "prompt":"A beautiful illustration in stunning detail of a large glowing heart made of fabric and pixels with a lock and key at its center, surrounded by ring shaped gates to alternate realities, by M. W. Kaluta + Angus McKie, trending on artstation, Deep depth of ﬁeld, f/22, 35mm.",
+      "nodeStatus": "Node Activation Pending",
+      "latitude": 19.4349753,
+      "longitude": -99.1622948,
+      "type": "Dromoi"
     }
 ]

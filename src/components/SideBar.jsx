@@ -26,7 +26,7 @@ function SideBar() {
   return (
     <div className='float-left' >
     <div className='flex absolute z-10 ease-in-out'>
-        <div className={`${data.open ? 'w-72' : 'w-24'} h-screen p-5 pt-8 bg-darkGrey relative`}>
+        <div className={`${data.open ? 'sm:w-72 w-80' : 'w-24'} h-screen p-5 pt-8 bg-darkGrey relative`}>
           <img src="/assets/icons/control.png" 
           className={`absolute cursor-pointer rounded-full -right-3 top-9 w-7 border-2 border-darkGrey ${!data.open && 'rotate-180'}`}
           onClick={()=>data.setOpen(!data.open)} />
@@ -34,7 +34,7 @@ function SideBar() {
             <img src="/assets/icons/logo.png" className={`cursor-pointer duration-500`}/>
             <h1 className={`text-white origin-left font-f25 font-medium text-xl ${!data.open && 'scale-0'}`}>Mini Map</h1>
           </div>
-          <ul className="mt-12 pt-6 origin-left">
+          <ul className="sm:mt-12 mt-7 pt-0 sm:pt-6 origin-left">
             <li className={`flex item-center mb-4 gap-x-4 cursor-pointer list-none ml-2 ${!data.open && 'justify-center ml-0'}`}>
               <ConnectButton.Custom >
                 {({

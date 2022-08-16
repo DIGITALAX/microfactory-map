@@ -19,7 +19,7 @@ function FeedBox() {
         <div className="fixed flex items-center justify-center z-10 cursor-move top-1/2 left-1/2">
 
         { !data.minimise ? 
-        <div className="absolute bg-lensLilac p-2 rounded-lg w-96">
+        <div className="absolute bg-lensLilac p-2 rounded-lg w-72 sm:w-96">
           <AiFillCloseCircle 
           color='#00501e'
           className='item-center right-0 top-0 p-0 m-2 cursor-pointer absolute'

@@ -11,8 +11,14 @@ import JSONPretty from 'react-json-pretty';
 
 function Feed(props) {
 
-    const [publicationsFeed, setPublicationsFeed] = useState([]);
+    const getURLs = (text) => {
+        const urlRegex = /(((https?:\/\/)|(www\.))[^\s]+)/g
+        return text.match(urlRegex) ?? []
+      }
 
+
+
+    const [publicationsFeed, setPublicationsFeed] = useState([]);
 
     async function fetchPublications() {
         try {
@@ -71,29 +77,24 @@ function Feed(props) {
                         </a>
                         <div className='text-space text-xs inline-block align-middle font-sans mt-1.5 ml-2'>{moment(`${publication.createdAt}`).fromNow()}</div>
                         </div>
-                        <div className='mt-6 mb-8 rounded pt-4 pl-8 pr-8 pb-4 border-solid border bg-lensGrey border-lensGrey drop-shadow-md'>
-                           { <JSONPretty data={publication.metadata.content}/> }
-                            {/* {publication.metadata.media === 0 ? null
-                                : publication.metadata.media.original
-                                ? <img src={publication.metadata.media.original?.url} alt={publication.id} className='w-8 h-8 rounded-full drop-shadow-md'/>
-                                : <img src={publication.metadata.media.original?.uri} alt={publication.id} className='w-8 h-8 rounded-full drop-shadow-md'/>
-                            } */}
+                        <div className='mt-6 font-sans mb-8 rounded pt-4 pl-8 pr-8 pb-4 border-solid border bg-lensGrey border-lensGrey drop-shadow-md'>
+                           <JSONPretty data={publication.metadata.content}/>
                                 <a href={`https://lenster.xyz/posts/${publication.id}`} target="_blank" rel="noreferrer">
                                 <ul className='mt-2 inline-block cursor-pointer font-sans'>
                                 <li className='float-left m-1 ml-0'>
                                 <HiCollection className='float-left m-2 ml-0 align-middle' />
-                                <span className='relative top-1'>
+                                <span className='relative text-xs top-1'>
                                 {publication.stats.totalAmountOfCollects}
                                 </span>
                                 </li>
                                 <li className='float-left m-1'>
-                                <FaComments className='float-left m-2 align-middle' />
+                                <FaComments className='float-left text-xs m-2 align-middle' />
                                 <span className='relative top-1'>
                                 {publication.stats.totalAmountOfComments}
                                 </span>
                                 </li>
                                 <li className='float-left m-1'>
-                                <FaRetweet className='float-left m-2 align-middle' />
+                                <FaRetweet className='float-left text-xs m-2 align-middle' />
                                 <span className='relative top-1'>
                                 {publication.stats.totalAmountOfMirrors}
                                 </span>
