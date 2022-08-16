@@ -139,7 +139,7 @@ function Common() {
             from consistent feeding schedules to casual talks & the occasional
             random walk, are plentiful.
           </h1>
-          <div className="text-lg font-thin md:text-xl lg:text-2xl mt-5 text-center font-extralight">
+          <div className="text-lg font-thin md:text-xl lg:text-2xl mt-5 text-center">
             Sustain high levels of vitality & healthy growth of essential stats
             to unlock speciality memberships for virtual & IRL microfactory
             co-ops. These are magical places dedicated to creative coordination
@@ -150,13 +150,13 @@ function Common() {
           </div>
         </div>
 
-        <div className="mx-0 sm:mb-0 mb-40 font-thin md:mx-4 mt-20 md:mt-0 px-10 border py-10  w-full text-white md:w-1/2">
+        <div className="mx-0 sm:mb-0 mb-40 font-londrina md:mx-4 mt-20 md:mt-0 px-10 border py-10  w-full text-white md:w-1/2">
           <h1 className="text-2xl md:text-3xl lg:text-4xl text-center">
             As you might have already guessed, neglecting your virtual companion
             can have dire consequeces… similar to the occacional relationship
             IRL.
           </h1>
-          <div className="text-lg md:text-xl lg:text-2xl mt-5 text-center font-extralight">
+          <div className="text-lg md:text-xl lg:text-2xl mt-5 text-center font-thin">
             The speed with which the situation for a nearly forgotten flame goes
             from alarming, to critical, to virtually hopeless can be stunning.
             Yet, all hope is not lost.
