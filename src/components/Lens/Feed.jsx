@@ -8,15 +8,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import ScrollLoader from './ScrollLoader';
 import JSONPretty from 'react-json-pretty';
 
-
 function Feed(props) {
-
-    const getURLs = (text) => {
-        const urlRegex = /(((https?:\/\/)|(www\.))[^\s]+)/g
-        return text.match(urlRegex) ?? []
-      }
-
-
 
     const [publicationsFeed, setPublicationsFeed] = useState([]);
 

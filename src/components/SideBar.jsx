@@ -71,7 +71,7 @@ function SideBar() {
                             data.open ? 
                             <button onClick={openConnectModal} className='justify-center font-sans text-xl bg-rainbow h-12 w-40 py-2 px-2 rounded-lg hover:opacity-80' >
                               <img className='object-fill w-6 h-6 list-none float-left p-0 mt-1 ml-3' src='/assets/icons/rainbow-small.png'/>
-                                <span className="w-fit relative flex ml-12 text-12 leading-8 font-bold text-white">rainbow</span>
+                                <span className="w-fit relative flex ml-12 text-12 leading-8 font-bold text-white">connect</span>
                             </button> :
                             <button onClick={openConnectModal} type="button" className='bg-rainbow flex item-center gap-x-4 cursor-pointer rounded-lg hover:opacity-80'>
                               <img src="/assets/icons/rainbow-small.png" className='w-10 h-10 p-2' />
