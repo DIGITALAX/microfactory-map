@@ -11,6 +11,8 @@ import JSONPretty from 'react-json-pretty';
 function Feed(props) {
 
     const [publicationsFeed, setPublicationsFeed] = useState([]);
+    const [pageInfo, setPageInfo] = useState();
+
 
     async function fetchPublications() {
         try {
@@ -20,15 +22,69 @@ function Feed(props) {
                     sortCriteria: 'LATEST', 
                     publicationTypes: ['POST','MIRROR'], 
                     limit: 30,
+                    noRandomize: true,
                 }
             }).toPromise();
             console.log(response.data.explorePublications.items);
+            const sortedArr = arr.sort((a,b) => Date.parse(b.createdAt) - Date.parse(a.createdAt));
+            setPublicationsFeed(response.data.explorePublications.items);
+            setPageInfo(response.data.explorePublications.pageInfo);
+            return response.data.explorePublications.items;
+
+        } catch (err) {
+            console.log(err)
+        }
+
+    };
+
+    useEffect( () => {
+
+        fetchPublications();
+        
+    },[]);
+
+
+    const fetchMorePublications = async () => {
+        try {
+            // pass id as object since reuqest in api id also passed as object
+            const response = await client.query(randomPublications, {
+                request: {
+                    sortCriteria: 'LATEST', 
+                    publicationTypes: ['POST','MIRROR'], 
+                    limit: 30,
+                    noRandomize: true,
+                    cursor: pageInfo.next,
+                }
+            }).toPromise();
+            console.log(response.data.explorePublications.items);
+
+            // iterrate on elements a and b and put b before a until all sorted (b before a because latest element goes first, the latest post)
+            const sortedArr = arr.sort((a,b) => Date.parse(b.createdAt) - Date.parse(a.createdAt));
+            setPublicationsFeed([...publicationsFeed, ...sortedArr]);
+            setPageInfo(response.data.explorePublications.pageInfo);
             return response.data.explorePublications.items;
 
         } catch (err) {
             console.log(err)
         }
     };
+
+
+
+    const checkImage = (media) => {
+
+        if (media.original.url.includes("http")) {
+                return <img src={media.original.url} alt={"media"} />
+            } else {
+                const cut = media.original.url.split("/");
+                const link = "https://lens.infura-ipfs.io/ipfs/" + cut[cut.length-1]
+                console.log(link);
+                return <img src={link} alt={"media"}/>
+            }
+    };
+
+
+
 
     const getAvatar = (profile) => {
 
@@ -46,33 +102,6 @@ function Feed(props) {
         } else {
                 return <img src={profile.picture.uri} alt={profile.name} className='w-8 h-8 rounded-full drop-shadow-md'/>
         }
-    };
-
-
-    const checkImage = (media) => {
-
-        if (media.original.url.includes("http")) {
-                return <img src={media.original.url} alt={"media"} />
-            } else {
-                const cut = media.original.url.split("/");
-                const link = "https://lens.infura-ipfs.io/ipfs/" + cut[cut.length-1]
-                console.log(link);
-                return <img src={link} alt={"media"}/>
-            }
-    };
-
-
-    useEffect( () => {
-
-        fetchMorePublications();
-        
-    },[]);
-
-    const fetchMorePublications = async () => {
-
-        const data = await fetchPublications();
-
-        setPublicationsFeed(pubs => ([...pubs, ...data]));
     };
 
 
