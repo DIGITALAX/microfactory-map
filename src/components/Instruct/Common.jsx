@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, forwardRef} from 'react';
 import { contextApi } from '../../pages/_app';
 
 function Common(ref) {
@@ -42,7 +42,7 @@ function Common(ref) {
       <img className='mt-0 md:mt-40 px-2 md:px-8' src='/assets/images/renewables.png' />
       <img className='w-3/6 md:w-3/12 mb-48 mt-16 sm:my-48 px-8 object-contain' src='/assets/images/renew.png' />
 
-      <section id="renewables"  className="flex flex-row w-full justify-center mt-20 md:mt-80 flex-wrap">
+      <section ref={data.renewRef} className="flex flex-row w-full justify-center mt-20 md:mt-80 flex-wrap">
         <img
           className="w-1/3 md:w-60 px-2 py-2 mx-2 sm:py-0 sm:px-1 object-contain"
           src="/assets/images/renew1.png"
@@ -98,7 +98,7 @@ function Common(ref) {
       <section
         className="mt-0 text-white md:mt-16 pb-48 pt-20 w-full flex flex-col items-center"
       >
-      <div id="mintSection" className="sm:w-1/2 w-4/6 lg:w-1/2 text-xl sm:text-lg md:text-3xl lg:text-5xl text-center mt-16 font-npress">
+      <div ref={data.mintRef} className="sm:w-1/2 w-4/6 lg:w-1/2 text-xl sm:text-lg md:text-3xl lg:text-5xl text-center mt-16 font-npress">
       Each instructable collected, shared and recycled puts another pixel brick on the build map for a hyper-local web3 microfactory, virtually, and possibly IRL, near you.
         </div>
         <div className="mt-8 text-center">
@@ -190,4 +190,4 @@ function Common(ref) {
   )
 }
 
-export default Common
+export default forwardRef(Common)

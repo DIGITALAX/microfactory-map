@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useRef} from 'react';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import LensModal from './Modals/LensModal';
 import { contextApi } from '../pages/_app';

@@ -2,7 +2,7 @@
 This code is political. War against the state.
 */
 
-import { useState, useEffect, createContext } from "react";
+import { useState, useEffect, createContext, useRef } from "react";
 import "./../../styles/globals.css";
 import SideBar from "./../components/SideBar";
 import Loader from "../components/Loader";
@@ -61,16 +61,21 @@ function MyApp({ Component, pageProps }) {
     }
   };
 
-  const goDownToMintSection = () => {
-    window.scrollBy({
-      top: findPos(document.getElementById("mintSection")),
+  const mintRef = useRef();
+  const renewRef = useRef();
+
+  const goDownToMintSection = (ref) => {
+    window.scrollTo({
+      top: ref.offsetTop,
+      left: 0,
       behavior: "smooth",
     });
   };
 
-  const goDownToRenewables = () => {
-    window.scrollBy({
-      top: findPos(document.getElementById("renewables")),
+  const goDownToRenewables = (ref) => {
+    window.scrollTo({
+      top: ref.offsetTop,
+      left: 0,
       behavior: "smooth",
     });
   };
@@ -96,6 +101,8 @@ function MyApp({ Component, pageProps }) {
                 minimise: minimise,
                 goDownToMintSection: goDownToMintSection,
                 goDownToRenewables: goDownToRenewables,
+                mintRef: mintRef,
+                renewRef: renewRef,
                 open: open,
                 setOpen: setOpen,
                 publicationsFeed: publicationsFeed,

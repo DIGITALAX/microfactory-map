@@ -45,3 +45,7 @@ html {
   font-family: sans-serif;
   white-space: pre-line;
 }
+
+.copy { 
+  cursor: pointer;
+}

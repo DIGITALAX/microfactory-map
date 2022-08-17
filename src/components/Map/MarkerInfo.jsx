@@ -73,6 +73,7 @@ function MarkerInfo(props) {
           <CopyToClipboard
           text={props.clickedMarker.prompt}
           onCopy={handleCopy}
+          className='cursor-pointer'
           >
           <div className='copy'>
           <FiCopy 

@@ -1,8 +1,11 @@
-import React from 'react';
-import { AiFillCloseCircle } from 'react-icons/ai'
+import React, {useContext} from 'react';
+import { AiFillCloseCircle } from 'react-icons/ai';
+import { contextApi } from '../../pages/_app';
 
 
 function GuildModal(props) {
+
+  const data = useContext(contextApi);
 
   const handleGuildModalClose = () => {
     props.setGuildModal(false);
@@ -11,7 +14,7 @@ function GuildModal(props) {
   if(!props.visible) return null;
 
   const closeAndMint = () => {
-    props.goDownToMintSection();
+    props.goDownToMintSection(data.mintRef.current);
     props.setGuildModal(false);
   }
 
