@@ -33,6 +33,8 @@ const wagmiClient = createClient({
   provider,
 });
 
+//
+
 function MyApp({ Component, pageProps }) {
   const [isLoading, setIsLoading] = useState(true);
   const [isFeedOpen, setIsFeedOpen] = useState(false);
@@ -72,33 +74,39 @@ function MyApp({ Component, pageProps }) {
     });
   };
 
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3500);
+  }, []);
+
   return (
     <>
-      {/* {isLoading ? (
+      {isLoading ? (
         <Loader />
-      ) : ( */}
-      <WagmiConfig client={wagmiClient}>
-        <RainbowKitProvider chains={chains} coolMode>
-          <contextApi.Provider
-            value={{
-              isFeedOpen: isFeedOpen,
-              handleFeedModal: handleFeedModal,
-              handleMinimise: handleMinimise,
-              minimise: minimise,
-              goDownToMintSection: goDownToMintSection,
-              goDownToRenewables: goDownToRenewables,
-              open: open,
-              setOpen: setOpen,
-            }}
-          >
-            <SideBar />
-            <FeedBox />
-            <Component {...pageProps} />
-          </contextApi.Provider>
-          <Footer />
-        </RainbowKitProvider>
-      </WagmiConfig>
-      {/* // )} */}
+      ) : (
+        <WagmiConfig client={wagmiClient}>
+          <RainbowKitProvider chains={chains} coolMode>
+            <contextApi.Provider
+              value={{
+                isFeedOpen: isFeedOpen,
+                handleFeedModal: handleFeedModal,
+                handleMinimise: handleMinimise,
+                minimise: minimise,
+                goDownToMintSection: goDownToMintSection,
+                goDownToRenewables: goDownToRenewables,
+                open: open,
+                setOpen: setOpen,
+              }}
+            >
+              <SideBar />
+              <FeedBox />
+              <Component {...pageProps} />
+            </contextApi.Provider>
+            <Footer />
+          </RainbowKitProvider>
+        </WagmiConfig>
+      )}
     </>
   );
 }

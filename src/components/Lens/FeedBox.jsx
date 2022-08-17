@@ -15,7 +15,7 @@ function FeedBox() {
   if(!data.isFeedOpen) return null;
   
   return(
-    <Draggable cancel=".close, .minimise" enableUserSelectHack={false}>
+    <Draggable cancel=".close, .minimise, .feed" enableUserSelectHack={false}>
         <div className="fixed flex items-center justify-center z-10 cursor-move top-1/2 left-1/2">
 
         { !data.minimise ? 
@@ -40,7 +40,7 @@ function FeedBox() {
           </h1>
           <FeedSearch />
           <div className='bg-lensGrey p-6 mr-2 ml-2 rounded-lg mb-5 item-center h-96 overflow-auto select-text'>
-          < Feed id='#scrollableDiv' />
+          < Feed className="feed" id='#scrollableDiv' />
           </div>
         </div> 
         :

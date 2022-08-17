@@ -660,3 +660,8 @@ fragment CommentMirrorOfFields on Comment {
     }
   }
 }`;
+
+export const getChallenge = `
+  query($request: ChallengeRequest!) {
+    challenge(request: $request) { text }
+  }`;

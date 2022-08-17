@@ -1,6 +1,5 @@
 import React from 'react';
-import { AiFillCloseCircle } from 'react-icons/ai'
-
+import { AiFillCloseCircle } from 'react-icons/ai';
 
 function LensModal(props) {
 
