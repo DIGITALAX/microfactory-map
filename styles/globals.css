@@ -11,6 +11,7 @@ html {
   overflow-x: hidden;
   margin: 0;
   padding: 0;
+  background-color: black;
 }
 
 .leaflet-control-layers .leaflet-control-layers-list, .leaflet-control-layers-expanded .leaflet-control-layers-toggle {
