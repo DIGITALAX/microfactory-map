@@ -69,13 +69,13 @@ export default function Document() {
           @font-face {
             font-family: 'Londrina Light';
             font-weight: 400;
-            src: url("./fonts/LondrinaSolid-Light.ttf");
+            src: url("./fonts/LondrinaSolid-Light.otf");
           }
 
           @font-face {
             font-family: 'Londrina Thin';
             font-weight: 400;
-            src: url("./fonts/LondrinaSolid-thin.ttf");
+            src: url("./fonts/LondrinaSolid-thin.otf");
           }
           
            `,

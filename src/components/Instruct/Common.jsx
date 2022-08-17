@@ -84,7 +84,7 @@ function Common(ref) {
           much
         </div>
         <div className="w-1/2 lg:w-700px text-lg md:text-xl lg:text-3xl text-center mt-16 font-extralight">
-        With instructables in hand you can grow feed for your companions, share open culture with on-chain incentives, and yfor every pack minted unlock a pixel-perfect puzzle piece on the next microfactory #freetobuild map.
+        With instructables in hand you can grow feed for your companions, share open culture with on-chain incentives, and for every pack minted unlock a pixel-perfect puzzle piece on the next microfactory #freetobuild map.
         </div>
         <div className="flex flex-col font-shadow md:flex-row items-center justify-between my-24 flex-wrap px-5 md:px-2 ">
           <div className="hashtag m-2 sm:m-4 text-2xl md:text-4xl">#howtonode</div>
@@ -99,7 +99,7 @@ function Common(ref) {
         className="mt-0 text-white md:mt-16 pb-48 pt-20 w-full flex flex-col items-center"
       >
       <div ref={data.mintRef} className="sm:w-1/2 w-4/6 lg:w-1/2 text-xl sm:text-lg md:text-3xl lg:text-5xl text-center mt-16 font-npress">
-      Each instructable collected, shared and recycled puts another pixel brick on the build map for a hyper-local web3 microfactory, virtually, and possibly IRL, near you.
+      Each instructable collected, shared and recycled puts another pixel brick on the build map for a hyperlocal web3 microfactory, virtually, and possibly IRL, near you.
         </div>
         <div className="mt-8 text-center">
           <button
@@ -143,7 +143,7 @@ function Common(ref) {
             Sustain high levels of vitality & healthy growth of essential stats
             to unlock speciality memberships for virtual & IRL microfactory
             co-ops. These are magical places dedicated to creative coordination
-            & seizing the memes of hyper-local production.
+            & seizing the memes of hyperlocal production.
           </div>
           <div className="w-full text-center flex justify-center">
             <img src="/assets/images/room.png" />
@@ -174,7 +174,7 @@ function Common(ref) {
             dashboard currentlly being built.
             <br />
             <br />
-            And for those who have forgotten to bring home enough ⌐◨-◨ feed to
+            And for those who have forgotten to bring home enough feed to
             share a few too many times, stay near the top of the negligence
             charts long enough and you might win entry to the the record halls
             of shame.
