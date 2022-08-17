@@ -3,7 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup, useMapEvents, useMap, LayersCon
 import 'leaflet/dist/leaflet.css'
 import mapLocationData from './../../mapdata/locations.json';
 import MarkerInfo from './MarkerInfo';
-import SearchMap from './SearchMap';
+// import SearchMap from './SearchMap';
 
 // marker icons
 import {Icon} from 'leaflet';
@@ -139,7 +139,7 @@ function Map() {
         <TileLayer
           url="https://{s}.tile.jawg.io/jawg-dark/{z}/{x}/{y}{r}.png?access-token=nQ7SwDENfnLoXI4s2visFVsAAUe2qBLOVHtx7yfLcrpcjfwL9QdzxMS3Rmp55i8W"
         />
-        <ZoomControl position='topright' zoomInText="" zoomOutText='hi'/>
+        <ZoomControl position='topright' zoomInText="+" zoomOutText='-'/>
 
         <CheckedListener />
 
@@ -148,7 +148,7 @@ function Map() {
         null
         }
 
-        <LayersControl position='topright' >
+        <LayersControl position='topright' style={{backgroundColor: "pink"}} >
           <LayersControl.Overlay name="All" checked>
             <LayerGroup>
           <LayersControl.Overlay name="Aisles" checked={checkedValue === "All" ? true : false}>

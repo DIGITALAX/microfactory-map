@@ -5,7 +5,7 @@ import { HiArrowsExpand } from 'react-icons/hi'
 import { contextApi } from '../../pages/_app';
 import Draggable from "react-draggable";
 import Feed from './Feed';
-import FeedSearch from './FeedSearch';
+// import FeedSearch from './FeedSearch';
 
 
 function FeedBox() {
@@ -35,10 +35,10 @@ function FeedBox() {
           onClick={data.handleMinimise}
           />
           </div>
-          <h1 className="font-semibold text-center text-xl text-darkGreenLens mt-4 font-spacebold">
+          <h1 className="font-semibold text-center text-xl text-darkGreenLens mb-7 mt-4 font-spacebold">
             Scroll Feed
           </h1>
-          <FeedSearch />
+          {/* <FeedSearch /> */}
           <div className='bg-lensGrey p-6 mr-2 ml-2 rounded-lg mb-5 item-center h-96 overflow-auto select-text'>
           < Feed className="feed" id='#scrollableDiv' />
           </div>

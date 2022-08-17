@@ -40,6 +40,7 @@ function MyApp({ Component, pageProps }) {
   const [isFeedOpen, setIsFeedOpen] = useState(false);
   const [minimise, setMinimise] = useState(false);
   const [open, setOpen] = useState(false);
+  const [publicationsFeed, setPublicationsFeed] = useState([]);
 
   const handleMinimise = () => {
     minimise ? setMinimise(false) : setMinimise(true);
@@ -97,6 +98,8 @@ function MyApp({ Component, pageProps }) {
                 goDownToRenewables: goDownToRenewables,
                 open: open,
                 setOpen: setOpen,
+                publicationsFeed: publicationsFeed,
+                setPublicationsFeed: setPublicationsFeed,
               }}
             >
               <SideBar />

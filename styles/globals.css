@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 html {
   scroll-behavior: smooth;
   font-family: "Armata" sans-serif;
@@ -12,25 +13,29 @@ html {
   padding: 0;
 }
 
-.leaflet-control-layers-toggle:after{ 
-  color:#000 ;
-}
-.leaflet-control-layers-toggle{ 
-  width:auto;
-  background-position:3px 50% ;
-  padding:3px;
-  padding-left:36px;
-  text-decoration:none;
-  line-height:36px;
-
+.leaflet-control-layers .leaflet-control-layers-list, .leaflet-control-layers-expanded .leaflet-control-layers-toggle {
+  font-family: 'Cooper Black';
+  font-size: small;
+  color: white;
+  -webkit-text-stroke-color: black;
+  -webkit-text-stroke-width: 0.5px;
 }
 
-.leaflet-control-zoom-ut { 
-
+.leaflet-touch .leaflet-control-layers, .leaflet-touch .leaflet-bar .leaflet-control-layers-expanded {
+  background-color: grey;
+  background-image: none;
 }
 
-.leaflet-control-zoom-in { 
+.leaflet-touch .leaflet-control-layers-toggle {
+  border-radius: 20px;
+}
 
+
+.leaflet-touch .leaflet-control-zoom-in, .leaflet-touch .leaflet-control-zoom-out { 
+  background-color: grey;
+  color: white;
+  font-family: 'Cooper Black';
+  font-size: 30px;
 }
 
 
