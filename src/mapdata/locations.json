@@ -1842,7 +1842,7 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": 12.934072,
       "longitude": 77.6076803,
-      "type": "Dromoi"
+      "type": "Facades"
     },
     {
       "id": 205,
@@ -1851,7 +1851,7 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": 6.1954352,
       "longitude": -75.5856316,
-      "type": "Dromoi"
+      "type": "Arcades"
     },
     {
       "id": 206,
@@ -1860,7 +1860,7 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": 6.1944133,
       "longitude": -75.5798354,
-      "type": "Dromoi"
+      "type": "Arcades"
     },
     {
       "id": 207,
@@ -1878,7 +1878,7 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": 6.2440746,
       "longitude": -75.5621872,
-      "type": "Dromoi"
+      "type": "Hatches"
     },
     {
       "id": 209,
@@ -1887,7 +1887,7 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": 6.2648545,
       "longitude": -75.5671412,
-      "type": "Dromoi"
+      "type": "Hatches"
     },
     {
       "id": 210,
@@ -1905,7 +1905,7 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": -33.4392738,
       "longitude": -70.6508907,
-      "type": "Dromoi"
+      "type": "Arcades"
     },
     {
       "id": 212,
@@ -1923,7 +1923,7 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": -33.4334323,
       "longitude": -70.6511061,
-      "type": "Dromoi"
+      "type": "Facades"
     },
     {
       "id": 214,
@@ -1932,7 +1932,7 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": -33.4918089,
       "longitude": -70.6459112,
-      "type": "Dromoi"
+      "type": "Hatches"
     },
     {
       "id": 215,
@@ -1941,7 +1941,7 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": -33.4492739,
       "longitude": -70.669266,
-      "type": "Dromoi"
+      "type": "Arcades"
     },
     {
       "id": 216,
@@ -1959,7 +1959,7 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": -33.4190167,
       "longitude": -70.6420109,
-      "type": "Dromoi"
+      "type": "Hatches"
     },
     {
       "id": 218,
@@ -1968,6 +1968,6 @@
       "nodeStatus": "Node Activation Pending",
       "latitude": -33.4425496,
       "longitude": -70.6261677,
-      "type": "Dromoi"
+      "type": "Facades"
     }
 ]
