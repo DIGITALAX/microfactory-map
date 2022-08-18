@@ -9,34 +9,6 @@ const FeedSearch = () => {
     const [search, setSearch] = useState(null)
     const [inputValue, setInputValue] = useState('');
 
-    // const handleSearch = async () => {
-    //     setLoadingState('');
-    //     setSearch(inputValue);
-    //     console.log(inputValue)
-
-    //      try {
-    //             const response = await client.query(searchPublications, {
-    //                 request: {
-    //                     query: search,
-    //                     type: "PUBLICATION",
-    //                 }
-    //             }).toPromise()
-    //             console.log(response.data.search.items)
-    //             const arr = response.data.search.items;
-
-    //             feedContext.setPublicationsFeed(arr);
-
-    //             if (!arr.length) {
-    //                 setLoadingState('Nothing found :(')
-    //             } 
-    //         } catch (error) {
-    //             console.log(error)
-    //         }
-
-    // console.log('search posts', feedContext.publicationsFeed)
-
-    // };
-
     useEffect(() => {
 
         if (search === null || search.length === 0) {
