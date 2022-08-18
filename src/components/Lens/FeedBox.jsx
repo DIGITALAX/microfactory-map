@@ -39,11 +39,9 @@ function FeedBox() {
             Scroll Feed
           </h1>
           {/* <FeedSearch /> */}
-          <div>
           <div className="feed">
           <div className='bg-lensGrey p-6 mr-2 ml-2 rounded-lg mb-5 item-center h-96 overflow-auto select-text'>
           < Feed/>
-          </div>
           </div>
           </div>
         </div> 
