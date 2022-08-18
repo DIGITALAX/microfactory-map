@@ -23,10 +23,6 @@ made cost effective today with web3."
           href="https://fonts.googleapis.com/css2?family=Armata&family=Londrina+Solid:wght@400&display=swap"
           rel="stylesheet"
         />
-        <link
-          href="https://fonts.googleapis.com/css?family=Londrina Solid Light"
-          rel="stylesheet"
-        />
         <style
           dangerouslySetInnerHTML={{
             __html: `

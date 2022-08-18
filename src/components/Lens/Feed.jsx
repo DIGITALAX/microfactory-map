@@ -1,5 +1,4 @@
-import React, {useState, useEffect, useContext} from 'react';
-import { client, randomPublications } from '../../apis/api';
+import React, {useContext} from 'react';
 import {CgProfile} from 'react-icons/cg';
 import moment from 'moment';
 import {FaRetweet, FaComments} from 'react-icons/fa';
@@ -7,75 +6,11 @@ import {HiCollection} from 'react-icons/hi'
 import InfiniteScroll from 'react-infinite-scroll-component';
 import ScrollLoader from './ScrollLoader';
 import JSONPretty from 'react-json-pretty';
-import {contextApi} from './../../pages/_app'
-
-
+import { feedApi } from './FeedBox';
 
 function Feed(props) {
 
-    const context = useContext(contextApi);
-
-    const [pageInfo, setPageInfo] = useState();
-
-
-    async function fetchPublications() {
-        try {
-            // pass id as object since reuqest in api id also passed as object
-            const response = await client.query(randomPublications, {
-                request: {
-                    sortCriteria: 'TOP_MIRRORED', 
-                    publicationTypes: ['POST'], 
-                    limit: 30,
-                    noRandomize: true,
-                }
-            }).toPromise();
-            const arr = response.data.explorePublications.items;
-            const sortedArr = arr.sort((a,b) => Date.parse(b.createdAt) - Date.parse(a.createdAt));
-            context.setPublicationsFeed(sortedArr);
-            setPageInfo(response.data.explorePublications.pageInfo);
-            return response.data.explorePublications.items;
-
-        } catch (err) {
-            console.log(err)
-        }
-
-    };
-
-    useEffect( () => {
-
-        fetchPublications();
-        
-    },[]);
-
-
-
-    const fetchMorePublications = async () => {
-        try {
-            // pass id as object since reuqest in api id also passed as object
-            const response = await client.query(randomPublications, {
-                request: {
-                    sortCriteria: 'LATEST', 
-                    publicationTypes: ['POST','MIRROR'], 
-                    limit: 30,
-                    noRandomize: true,
-                    cursor: pageInfo.next,
-                }
-            }).toPromise();
-
-            const arr = response.data.explorePublications.items;
-
-            // iterrate on elements a and b and put b before a until all sorted (b before a because latest element goes first, the latest post)
-            const sortedArr = arr.sort((a,b) => Date.parse(b.createdAt) - Date.parse(a.createdAt));
-            context.setPublicationsFeed([...context.publicationsFeed, ...sortedArr]);
-            setPageInfo(response.data.explorePublications.pageInfo);
-            console.log(context.publicationsFeed);
-            return response.data.explorePublications.items;
-
-        } catch (err) {
-            console.log(err)
-        }
-    };
-
+    const feedContext = useContext(feedApi);
 
 
     const checkImage = (media) => {
@@ -126,17 +61,17 @@ function Feed(props) {
 
   return (
     <InfiniteScroll
-    dataLength={context.publicationsFeed.length}
-    next={fetchMorePublications}
+    dataLength={feedContext.publicationsFeed.length}
+    next={feedContext.fetchMorePublications}
     hasMore={true}
     loader={<ScrollLoader />}
     height='20rem'
     scrollableTarget={props.id}
     pullDownToRefresh
-    refreshFunction={fetchMorePublications}
+    refreshFunction={feedContext.fetchMorePublications}
     >
         {
-            context.publicationsFeed.map((publication, index)=>
+            feedContext.publicationsFeed.map((publication, index)=>
             (
                     <div key={index}>
                         <div className='w-12 float-left'>

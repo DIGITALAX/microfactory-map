@@ -1,16 +1,104 @@
-import React, {useContext, useState, useRef} from 'react';
+import React, {useContext, useState, createContext, useEffect} from 'react';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { VscChromeMinimize } from 'react-icons/vsc';
 import { HiArrowsExpand } from 'react-icons/hi'
 import { contextApi } from '../../pages/_app';
 import Draggable from "react-draggable";
 import Feed from './Feed';
-// import FeedSearch from './FeedSearch';
+import FeedSearch from './FeedSearch';
+import { client, randomPublications } from '../../clients/lens/api';
+import {FiRefreshCcw} from 'react-icons/fi';
+
+
+export const feedApi = createContext();
 
 
 function FeedBox() {
 
   const data = useContext(contextApi);
+
+  const [publicationsFeed, setPublicationsFeed] = useState([]);
+
+  const [pageInfo, setPageInfo] = useState();
+
+    async function fetchPublications() {
+        try {
+            const response = await client.query(randomPublications, {
+                request: {
+                    sortCriteria: 'TOP_MIRRORED', 
+                    publicationTypes: ['POST'], 
+                    limit: 30,
+                    noRandomize: true,
+                }
+            }).toPromise();
+            const arr = response.data.explorePublications.items;
+            const sortedArr = arr.sort((a,b) => Date.parse(b.createdAt) - Date.parse(a.createdAt));
+            setPublicationsFeed(sortedArr);
+            setPageInfo(response.data.explorePublications.pageInfo);
+            return response.data.explorePublications.items;
+
+        } catch (err) {
+            console.log(err)
+        }
+
+    };
+
+    useEffect( () => {
+
+        fetchPublications();
+        
+    },[]);
+
+
+
+    const fetchMorePublications = async () => {
+        try {
+            const response = await client.query(randomPublications, {
+                request: {
+                    sortCriteria: 'LATEST', 
+                    publicationTypes: ['POST','MIRROR'], 
+                    limit: 30,
+                    noRandomize: true,
+                    cursor: pageInfo.next,
+                }
+            }).toPromise();
+
+            const arr = response.data.explorePublications.items;
+
+            const sortedArr = arr.sort((a,b) => Date.parse(b.createdAt) - Date.parse(a.createdAt));
+            setPublicationsFeed([...publicationsFeed, ...sortedArr]);
+            setPageInfo(response.data.explorePublications.pageInfo);
+            return response.data.explorePublications.items;
+
+        } catch (err) {
+            console.log(err)
+        }
+    };
+
+
+    async function fetchLatestPublications() {
+      try {
+          const response = await client.query(randomPublications, {
+              request: {
+                  sortCriteria: 'LATEST', 
+                  publicationTypes: ['POST'], 
+                  limit: 30,
+                  noRandomize: true,
+              }
+          }).toPromise();
+          const arr = response.data.explorePublications.items;
+          const sortedArr = arr.sort((a,b) => Date.parse(b.createdAt) - Date.parse(a.createdAt));
+          setPublicationsFeed(sortedArr);
+          setPageInfo(response.data.explorePublications.pageInfo);
+          return response.data.explorePublications.items;
+
+      } catch (err) {
+          console.log(err)
+      }
+
+  };
+
+
 
   if(!data.isFeedOpen) return null;
   
@@ -35,15 +123,30 @@ function FeedBox() {
           onClick={data.handleMinimise}
           />
           </div>
-          <h1 className="font-semibold text-center text-xl text-darkGreenLens mb-7 mt-4 font-spacebold">
+          <h1 className="font-semibold text-center text-xl text-darkGreenLens mt-4 font-spacebold">
             Scroll Feed
           </h1>
-          {/* <FeedSearch /> */}
+          <div className='bg-darkGreenLens p-2 rounded-lg h-8 w-8 hover:opacity-80 cursor-pointer relative sm:left-[80px] sm:top-[3rem] left-[10px] top-[0.5rem]'>
+          <FiRefreshCcw
+          color='white'
+          onClick={fetchLatestPublications}
+           />
+          </div>
+          <feedApi.Provider
+          value={{
+            publicationsFeed: publicationsFeed,
+            setPublicationsFeed: setPublicationsFeed,
+            fetchMorePublications: fetchMorePublications,
+            fetchPublications: fetchPublications
+          }}
+          >
+          <FeedSearch />
           <div className="feed">
-          <div className='bg-lensGrey p-6 mr-2 ml-2 rounded-lg mb-5 item-center h-96 overflow-auto select-text'>
+          <div className='bg-lensGrey cursor-auto p-6 mr-2 ml-2 rounded-lg mb-5 item-center h-96 overflow-auto select-text'>
           < Feed/>
           </div>
           </div>
+          </feedApi.Provider>
         </div> 
         :
         <div className="absolute bg-lensLilac p-2 rounded-lg w-56">
