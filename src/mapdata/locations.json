@@ -1768,6 +1768,7 @@
       "id": 196,
       "story": "To think, there was a time when cartographers were the most important people in the world. It was the Carto who made these, long before algos dropped everyone behind the veils.",
       "prompt":"A beautiful illustration in stunning detail of a dreamlike conversation between a cartographer and a cryptographer, by Goro Fujita, trending on artstation.",
+      "nodeStatus": "Node Activation Pending",
       "latitude": 45.523965,
       "longitude": 9.109928,
       "type": "Passages"

@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Mini Map</title>
+        <title>Microfactory Mini Map</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="w-full h-screen bg-black">
