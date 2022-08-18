@@ -14,6 +14,14 @@ html {
   background-color: black;
 }
 
+body {
+  background-color: black;
+}
+
+main {
+  background-color: black;
+}
+
 .leaflet-control-layers .leaflet-control-layers-list, .leaflet-control-layers-expanded .leaflet-control-layers-toggle {
   font-family: 'Cooper Black';
   font-size: small;
