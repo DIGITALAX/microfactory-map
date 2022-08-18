@@ -4,6 +4,15 @@ export default function Document() {
   return (
     <Html>
       <Head>
+        <meta property="og:url" content="https://microfactory.digitalax.xyz/" />
+        <meta property="og:title" content="Microfactory Mini Map" />
+        <meta
+          property="og:description"
+          content="Combining ageless techniques with near future tech,
+made cost effective today with web3."
+        />
+        <meta property="og:image" content="/assets/images/head.png" />
+        <meta property="twitter:card" content="summary" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
