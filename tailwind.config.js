@@ -28,7 +28,7 @@ module.exports = {
         f25: "F25 Bank Printer",
         shadow: "Londrina Shadow",
         light: "Londrina Light",
-        thin: "Londrina Thin",
+        thinlon: "Londrina Thin",
       },
       backgroundColor: {
         "loading-radial": "radial-gradient(#080810 10%, #000001)",

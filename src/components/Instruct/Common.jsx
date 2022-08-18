@@ -83,7 +83,7 @@ function Common(prop, ref) {
           A simple collection of words and images shouldn’t be able to do so
           much
         </div>
-        <div className="w-1/2 lg:w-700px text-lg md:text-xl lg:text-3xl text-center mt-16 font-extralight">
+        <div className="w-1/2 lg:w-700px text-lg md:text-xl lg:text-3xl text-center mt-16 font-light">
         With instructables in hand you can grow feed for your companions, share open culture with on-chain incentives, and for every pack minted unlock a pixel-perfect puzzle piece on the next microfactory #freetobuild map.
         </div>
         <div className="flex flex-col font-shadow md:flex-row items-center justify-between my-24 flex-wrap px-5 md:px-2 ">
@@ -125,7 +125,7 @@ function Common(prop, ref) {
             SHOWS IN THE LIL’ DETAILS <br />
             TOO RARE TO MISS
           </h1>
-          <div className="sm:mt-10 mt-6 sm:mb-0 mb-60 font-thin text-white text-lg md:text-xl lg:text-3xl text-center md:text-center">
+          <div className="sm:mt-10 mt-6 sm:mb-0 mb-60 font-thinlon text-white text-lg md:text-xl lg:text-3xl text-center md:text-center">
             Like most people, renewables like good company, frequent time to
             play or explore, and care a lot about what you feed them.
           </div>
@@ -139,7 +139,7 @@ function Common(prop, ref) {
             from consistent feeding schedules to casual talks & the occasional
             random walk, are plentiful.
           </h1>
-          <div className="text-lg font-thin md:text-xl lg:text-2xl mt-5 text-center">
+          <div className="text-lg font-thinlon md:text-xl lg:text-2xl mt-5 text-center">
             Sustain high levels of vitality & healthy growth of essential stats
             to unlock speciality memberships for virtual & IRL microfactory
             co-ops. These are magical places dedicated to creative coordination
@@ -156,7 +156,7 @@ function Common(prop, ref) {
             can have dire consequeces… similar to the occacional relationship
             IRL.
           </h1>
-          <div className="text-lg md:text-xl lg:text-2xl mt-5 text-center font-thin">
+          <div className="text-lg md:text-xl lg:text-2xl mt-5 text-center font-thinlon">
             The speed with which the situation for a nearly forgotten flame goes
             from alarming, to critical, to virtually hopeless can be stunning.
             Yet, all hope is not lost.

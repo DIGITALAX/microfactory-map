@@ -79,7 +79,7 @@ export default function Document() {
           @font-face {
             font-family: 'Londrina Thin';
             font-weight: 400;
-            src: url("./fonts/LondrinaSolid-thin.otf");
+            src: url("./fonts/LondrinaSolid-Thin.otf");
           }
           
            `,
