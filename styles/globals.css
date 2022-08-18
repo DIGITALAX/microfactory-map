@@ -11,15 +11,15 @@ html {
   overflow-x: hidden;
   margin: 0;
   padding: 0;
-  background-color: black;
+  background-color: black !important;
 }
 
 body {
-  background-color: black;
+  background-color: black !important;
 }
 
 main {
-  background-color: black;
+  background-color: black !important;
 }
 
 .leaflet-control-layers .leaflet-control-layers-list, .leaflet-control-layers-expanded .leaflet-control-layers-toggle {
