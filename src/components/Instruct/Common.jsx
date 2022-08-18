@@ -1,7 +1,7 @@
 import React, {useContext, useState, forwardRef} from 'react';
 import { contextApi } from '../../pages/_app';
 
-function Common(ref) {
+function Common(prop, ref) {
 
   const data = useContext(contextApi);
 
