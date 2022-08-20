@@ -3,7 +3,8 @@ import { MapContainer, TileLayer, Marker, Popup, useMapEvents, useMap, LayersCon
 import 'leaflet/dist/leaflet.css'
 import mapLocationData from './../../mapdata/locations.json';
 import MarkerInfo from './MarkerInfo';
-// import SearchMap from './SearchMap';
+import Script from '../../customhooks/Script';
+import {FaTwitter} from 'react-icons/fa';
 
 // marker icons
 import {Icon} from 'leaflet';
@@ -12,7 +13,7 @@ function Map() {
 
   let Aisles = new Icon({
     iconUrl: '/assets/images/portals/portal1.gif',
-    iconSize: [40,40]
+    iconSize: [40,40],
   });
 
   let Paths = new Icon({
@@ -92,6 +93,8 @@ function Map() {
   const filteredOutposts = mapLocationData.filter(item => item.type === "Outposts");
   const filteredChannels = mapLocationData.filter(item => item.type === "Channels");
 
+  const TWITTER_MAX = 249;
+
   // Marker on click
   const [clickPosition, setClickPosition] = useState(null);
   const [clickedMarker, setClickedMarker] = useState(null);
@@ -127,6 +130,14 @@ function Map() {
 
     return null;
   };
+
+    const twitterText = (mapLocation) => {
+      if (mapLocation.story.length < TWITTER_MAX) {
+        return mapLocation.story
+      } else {
+        return `${mapLocation.story.substring(0, TWITTER_MAX)}...`
+      } 
+    };
 
 
   return (
@@ -167,11 +178,33 @@ function Map() {
                   }}
                   icon = {Aisles}
                 >
-                  {/* <Popup position={[mapLocation.latitude, mapLocation.longitude]} >
-                    <div>
-                      <p>{mapLocation.address}</p>
+                  <Popup >
+                    <div className='w-full'>
+                        <a
+                        href="https://twitter.com/intent/tweet"
+                        data-size="short"
+                        data-text={twitterText(mapLocation)}
+                        data-url=" "
+                        data-hashtags="microfactory,cc0,web3"
+                        data-via=""
+                        >
+                        <FaTwitter 
+                        color='#1d9bf0'
+                        className='align-center inline-flex'
+                        />
+                        <p className='font-space text-xs m-0'>
+                        Share Story
+                        </p>
+                      </a>
+
+                      <Script
+                        async
+                        type="text/javascript"
+                        src="https://platform.twitter.com/widgets.js"
+                        charset="utf-8"
+                      />
                     </div> 
-                  </Popup>*/}
+                  </Popup>
                 </Marker>
               ))
             }

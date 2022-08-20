@@ -58,3 +58,38 @@ main {
 .copy { 
   cursor: pointer;
 }
+
+.request-popup, .leaflet-popup-content-wrapper {
+  background-color: black;
+  width: fit-content;
+
+}
+
+.leaflet-popup-content p {
+  margin: 0;
+}
+
+.leaflet-popup-content-wrapper {
+  background-color: black;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+  color: white;
+}
+
+.leaflet-container a.leaflet-popup-close-button:hover {
+  color: #E7B805;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+  color: #E7B805;
+}
+
+.leaflet-popup-tip {
+  background: #BA180A;
+}
+
+.leaflet-popup-content {
+  text-align: center;
+  font-family: 'LoRes';
+}

@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import {CgProfile} from 'react-icons/cg';
 import moment from 'moment';
 import {FaRetweet, FaComments} from 'react-icons/fa';
@@ -7,6 +7,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import ScrollLoader from './ScrollLoader';
 import JSONPretty from 'react-json-pretty';
 import { feedApi } from './FeedBox';
+import changeFeed from '../../reducers/feed';
 
 function Feed(props) {
 
@@ -98,28 +99,30 @@ function Feed(props) {
                                     null
                             ))}
                             </div>
-                                <a href={`https://lenster.xyz/posts/${publication.id}`} target="_blank" rel="noreferrer">
                                 <ul className='mt-2 inline-block cursor-pointer font-sans text-sm sm:text-base'>
-                                <li className='float-left ml-0 sm:m-1'>
+                                <li className='float-left ml-0 sm:m-1'
+                                onClick={() => changeFeed({type: "Collect"})}>
                                 <HiCollection className='float-left relative top-[0.15rem] m-2 ml-0 align-middle' />
                                 <span className='relative top-2 text-xs sm:top-1'>
                                 {publication.stats.totalAmountOfCollects}
                                 </span>
                                 </li>
-                                <li className='float-left sm:m-1'>
+                                <li className='float-left sm:m-1'
+                                onClick={() => changeFeed({type: "Comment"})}>
                                 <FaComments className='float-left relative top-1 text-xs m-2 align-middle' />
                                 <span className='relative top-2 text-xs sm:top-1'>
                                 {publication.stats.totalAmountOfComments}
                                 </span>
                                 </li>
-                                <li className='float-left sm:m-1'>
+                                <li className='float-left sm:m-1'
+                                onClick={() => changeFeed({type: "Mirror"})}
+                                >
                                 <FaRetweet className='float-left relative top-1 text-xs m-2 align-middle' />
                                 <span className='relative top-2 text-xs sm:top-1'>
                                 {publication.stats.totalAmountOfMirrors}
                                 </span>
                                 </li>
                                 </ul>
-                                </a>
                         </div>
                     </div>
             ))

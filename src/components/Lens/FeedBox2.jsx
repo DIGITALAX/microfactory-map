@@ -9,12 +9,16 @@ import FeedSearch from './FeedSearch';
 import { client, randomPublications, mirrorsByPost } from '../../clients/lens/api';
 import {FiRefreshCcw} from 'react-icons/fi';
 import {IoMdArrowRoundBack} from 'react-icons/io';
-import Mirrors from './PublicationsFunctions/Mirrors';
+import changeFeed from '../../reducers/feed';
 
 export const feedApi = createContext();
 
 
 function FeedBox() {
+
+  const initialState = <Feed />;
+  const [state, changeFeed] = useReducer(changeFeed, initialState)
+
 
   const context = useContext(contextApi);
 
@@ -206,15 +210,6 @@ function FeedBox() {
             fetchMoreMirrors: fetchMoreMirrors
           }}
           >
-          {mirror ?
-          <div className='bg-darkGreenLens p-2 rounded-lg mb-4 sm:mb-14  h-8 w-8 hover:opacity-80 cursor-pointer relative sm:top-[3rem] left-[10px] top-[0.5rem]'>
-          <IoMdArrowRoundBack 
-           color='white'
-           onClick={handleMirrorClose}
-          />
-          </div>
-          : null}
-          <FeedSearch />
           <div className="feed">
           <div className= 'bg-lensGrey cursor-auto p-6 mr-2 ml-2 rounded-lg mb-5 item-center h-96 overflow-auto select-text'>
           {state}
