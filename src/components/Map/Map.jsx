@@ -221,11 +221,28 @@ function Map() {
                   }}
                   icon = {Paths}
                 >
-                  {/* <Popup position={[mapLocation.latitude, mapLocation.longitude]} >
-                    <div>
-                      <p>{mapLocation.address}</p>
-                    </div>
-                  </Popup> */}
+                <Popup >
+                    <div className='w-full'>
+                        <a
+                        href={`https://twitter.com/intent/tweet?hashtags=microfactory%2Ccc0%2Cweb3&original_referer=https%3A%2F%2Fmicrofactory.digitalax.xyz%2F&ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Eshare%7Ctwgr%5E&text=${twitterText(mapLocation)}...&url=%20`}
+                        data-size="short"
+                        >
+                        <FaTwitter 
+                        color='#1d9bf0'
+                        className='align-center inline-flex'
+                        />
+                        <p className='font-f25 my-0 text-xs m-0'>
+                        Pulse
+                        </p>
+                      </a>
+                      <Script
+                        async
+                        type="text/javascript"
+                        src="https://platform.twitter.com/widgets.js"
+                        charset="utf-8"
+                      />
+                    </div> 
+                  </Popup>
                 </Marker>
               ))
             }
@@ -247,11 +264,28 @@ function Map() {
                   }}
                   icon = {Arcades}
                 >
-                  {/* <Popup position={[mapLocation.latitude, mapLocation.longitude]} >
-                    <div>
-                      <p>{mapLocation.address}</p>
-                    </div>
-                  </Popup> */}
+                <Popup >
+                    <div className='w-full'>
+                        <a
+                        href={`https://twitter.com/intent/tweet?hashtags=microfactory%2Ccc0%2Cweb3&original_referer=https%3A%2F%2Fmicrofactory.digitalax.xyz%2F&ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Eshare%7Ctwgr%5E&text=${twitterText(mapLocation)}...&url=%20`}
+                        data-size="short"
+                        >
+                        <FaTwitter 
+                        color='#1d9bf0'
+                        className='align-center inline-flex'
+                        />
+                        <p className='font-f25 my-0 text-xs m-0'>
+                        Pulse
+                        </p>
+                      </a>
+                      <Script
+                        async
+                        type="text/javascript"
+                        src="https://platform.twitter.com/widgets.js"
+                        charset="utf-8"
+                      />
+                    </div> 
+                  </Popup>
                 </Marker>
               ))
             }
@@ -273,11 +307,28 @@ function Map() {
                   }}
                   icon = {Passages}
                 >
-                  {/* <Popup position={[mapLocation.latitude, mapLocation.longitude]} >
-                    <div>
-                      <p>{mapLocation.address}</p>
-                    </div>
-                  </Popup> */}
+                <Popup >
+                    <div className='w-full'>
+                        <a
+                        href={`https://twitter.com/intent/tweet?hashtags=microfactory%2Ccc0%2Cweb3&original_referer=https%3A%2F%2Fmicrofactory.digitalax.xyz%2F&ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Eshare%7Ctwgr%5E&text=${twitterText(mapLocation)}...&url=%20`}
+                        data-size="short"
+                        >
+                        <FaTwitter 
+                        color='#1d9bf0'
+                        className='align-center inline-flex'
+                        />
+                        <p className='font-f25 my-0 text-xs m-0'>
+                        Pulse
+                        </p>
+                      </a>
+                      <Script
+                        async
+                        type="text/javascript"
+                        src="https://platform.twitter.com/widgets.js"
+                        charset="utf-8"
+                      />
+                    </div> 
+                  </Popup>
                 </Marker>
               ))
             }
@@ -299,11 +350,28 @@ function Map() {
                   }}
                   icon = {Corridors}
                 >
-                  {/* <Popup position={[mapLocation.latitude, mapLocation.longitude]} >
-                    <div>
-                      <p>{mapLocation.address}</p>
-                    </div>
-                  </Popup> */}
+                <Popup >
+                    <div className='w-full'>
+                        <a
+                        href={`https://twitter.com/intent/tweet?hashtags=microfactory%2Ccc0%2Cweb3&original_referer=https%3A%2F%2Fmicrofactory.digitalax.xyz%2F&ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Eshare%7Ctwgr%5E&text=${twitterText(mapLocation)}...&url=%20`}
+                        data-size="short"
+                        >
+                        <FaTwitter 
+                        color='#1d9bf0'
+                        className='align-center inline-flex'
+                        />
+                        <p className='font-f25 my-0 text-xs m-0'>
+                        Pulse
+                        </p>
+                      </a>
+                      <Script
+                        async
+                        type="text/javascript"
+                        src="https://platform.twitter.com/widgets.js"
+                        charset="utf-8"
+                      />
+                    </div> 
+                  </Popup>
                 </Marker>
               ))
             }
@@ -325,11 +393,28 @@ function Map() {
                   }}
                   icon = {Dromoi}
                 >
-                  {/* <Popup position={[mapLocation.latitude, mapLocation.longitude]} >
-                    <div>
-                      <p>{mapLocation.address}</p>
-                    </div>
-                  </Popup> */}
+                <Popup >
+                    <div className='w-full'>
+                        <a
+                        href={`https://twitter.com/intent/tweet?hashtags=microfactory%2Ccc0%2Cweb3&original_referer=https%3A%2F%2Fmicrofactory.digitalax.xyz%2F&ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Eshare%7Ctwgr%5E&text=${twitterText(mapLocation)}...&url=%20`}
+                        data-size="short"
+                        >
+                        <FaTwitter 
+                        color='#1d9bf0'
+                        className='align-center inline-flex'
+                        />
+                        <p className='font-f25 my-0 text-xs m-0'>
+                        Pulse
+                        </p>
+                      </a>
+                      <Script
+                        async
+                        type="text/javascript"
+                        src="https://platform.twitter.com/widgets.js"
+                        charset="utf-8"
+                      />
+                    </div> 
+                  </Popup>
                 </Marker>
               ))
             }
@@ -351,11 +436,28 @@ function Map() {
                   }}
                   icon = {Facades}
                 >
-                  {/* <Popup position={[mapLocation.latitude, mapLocation.longitude]} >
-                    <div>
-                      <p>{mapLocation.address}</p>
-                    </div>
-                  </Popup> */}
+                <Popup >
+                    <div className='w-full'>
+                        <a
+                        href={`https://twitter.com/intent/tweet?hashtags=microfactory%2Ccc0%2Cweb3&original_referer=https%3A%2F%2Fmicrofactory.digitalax.xyz%2F&ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Eshare%7Ctwgr%5E&text=${twitterText(mapLocation)}...&url=%20`}
+                        data-size="short"
+                        >
+                        <FaTwitter 
+                        color='#1d9bf0'
+                        className='align-center inline-flex'
+                        />
+                        <p className='font-f25 my-0 text-xs m-0'>
+                        Pulse
+                        </p>
+                      </a>
+                      <Script
+                        async
+                        type="text/javascript"
+                        src="https://platform.twitter.com/widgets.js"
+                        charset="utf-8"
+                      />
+                    </div> 
+                  </Popup>
                 </Marker>
               ))
             }
@@ -377,11 +479,28 @@ function Map() {
                   }}
                   icon = {Labyrinths}
                 >
-                  {/* <Popup position={[mapLocation.latitude, mapLocation.longitude]} >
-                    <div>
-                      <p>{mapLocation.address}</p>
-                    </div>
-                  </Popup> */}
+                 <Popup >
+                    <div className='w-full'>
+                        <a
+                        href={`https://twitter.com/intent/tweet?hashtags=microfactory%2Ccc0%2Cweb3&original_referer=https%3A%2F%2Fmicrofactory.digitalax.xyz%2F&ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Eshare%7Ctwgr%5E&text=${twitterText(mapLocation)}...&url=%20`}
+                        data-size="short"
+                        >
+                        <FaTwitter 
+                        color='#1d9bf0'
+                        className='align-center inline-flex'
+                        />
+                        <p className='font-f25 my-0 text-xs m-0'>
+                        Pulse
+                        </p>
+                      </a>
+                      <Script
+                        async
+                        type="text/javascript"
+                        src="https://platform.twitter.com/widgets.js"
+                        charset="utf-8"
+                      />
+                    </div> 
+                  </Popup>
                 </Marker>
               ))
             }
@@ -403,11 +522,28 @@ function Map() {
                   }}
                   icon = {PortHoles}
                 >
-                  {/* <Popup position={[mapLocation.latitude, mapLocation.longitude]} >
-                    <div>
-                      <p>{mapLocation.address}</p>
-                    </div>
-                  </Popup> */}
+                <Popup >
+                    <div className='w-full'>
+                        <a
+                        href={`https://twitter.com/intent/tweet?hashtags=microfactory%2Ccc0%2Cweb3&original_referer=https%3A%2F%2Fmicrofactory.digitalax.xyz%2F&ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Eshare%7Ctwgr%5E&text=${twitterText(mapLocation)}...&url=%20`}
+                        data-size="short"
+                        >
+                        <FaTwitter 
+                        color='#1d9bf0'
+                        className='align-center inline-flex'
+                        />
+                        <p className='font-f25 my-0 text-xs m-0'>
+                        Pulse
+                        </p>
+                      </a>
+                      <Script
+                        async
+                        type="text/javascript"
+                        src="https://platform.twitter.com/widgets.js"
+                        charset="utf-8"
+                      />
+                    </div> 
+                  </Popup>
                 </Marker>
               ))
             }
@@ -429,11 +565,28 @@ function Map() {
                   }}
                   icon = {Beacons}
                 >
-                  {/* <Popup position={[mapLocation.latitude, mapLocation.longitude]} >
-                    <div>
-                      <p>{mapLocation.address}</p>
-                    </div>
-                  </Popup> */}
+                <Popup >
+                    <div className='w-full'>
+                        <a
+                        href={`https://twitter.com/intent/tweet?hashtags=microfactory%2Ccc0%2Cweb3&original_referer=https%3A%2F%2Fmicrofactory.digitalax.xyz%2F&ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Eshare%7Ctwgr%5E&text=${twitterText(mapLocation)}...&url=%20`}
+                        data-size="short"
+                        >
+                        <FaTwitter 
+                        color='#1d9bf0'
+                        className='align-center inline-flex'
+                        />
+                        <p className='font-f25 my-0 text-xs m-0'>
+                        Pulse
+                        </p>
+                      </a>
+                      <Script
+                        async
+                        type="text/javascript"
+                        src="https://platform.twitter.com/widgets.js"
+                        charset="utf-8"
+                      />
+                    </div> 
+                  </Popup>
                 </Marker>
               ))
             }
@@ -455,11 +608,28 @@ function Map() {
                   }}
                   icon = {Hatches}
                 >
-                  {/* <Popup position={[mapLocation.latitude, mapLocation.longitude]} >
-                    <div>
-                      <p>{mapLocation.address}</p>
-                    </div>
-                  </Popup> */}
+                <Popup >
+                    <div className='w-full'>
+                        <a
+                        href={`https://twitter.com/intent/tweet?hashtags=microfactory%2Ccc0%2Cweb3&original_referer=https%3A%2F%2Fmicrofactory.digitalax.xyz%2F&ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Eshare%7Ctwgr%5E&text=${twitterText(mapLocation)}...&url=%20`}
+                        data-size="short"
+                        >
+                        <FaTwitter 
+                        color='#1d9bf0'
+                        className='align-center inline-flex'
+                        />
+                        <p className='font-f25 my-0 text-xs m-0'>
+                        Pulse
+                        </p>
+                      </a>
+                      <Script
+                        async
+                        type="text/javascript"
+                        src="https://platform.twitter.com/widgets.js"
+                        charset="utf-8"
+                      />
+                    </div> 
+                  </Popup>
                 </Marker>
               ))
             }
@@ -481,11 +651,28 @@ function Map() {
                   }}
                   icon = {Outposts}
                 >
-                  {/* <Popup position={[mapLocation.latitude, mapLocation.longitude]} >
-                    <div>
-                      <p>{mapLocation.address}</p>
-                    </div>
-                  </Popup> */}
+                <Popup >
+                    <div className='w-full'>
+                        <a
+                        href={`https://twitter.com/intent/tweet?hashtags=microfactory%2Ccc0%2Cweb3&original_referer=https%3A%2F%2Fmicrofactory.digitalax.xyz%2F&ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Eshare%7Ctwgr%5E&text=${twitterText(mapLocation)}...&url=%20`}
+                        data-size="short"
+                        >
+                        <FaTwitter 
+                        color='#1d9bf0'
+                        className='align-center inline-flex'
+                        />
+                        <p className='font-f25 my-0 text-xs m-0'>
+                        Pulse
+                        </p>
+                      </a>
+                      <Script
+                        async
+                        type="text/javascript"
+                        src="https://platform.twitter.com/widgets.js"
+                        charset="utf-8"
+                      />
+                    </div> 
+                  </Popup>
                 </Marker>
               ))
             }
@@ -507,11 +694,28 @@ function Map() {
                   }}
                   icon = {Channels}
                 >
-                  {/* <Popup position={[mapLocation.latitude, mapLocation.longitude]} >
-                    <div>
-                      <p>{mapLocation.address}</p>
-                    </div>
-                  </Popup> */}
+                <Popup >
+                    <div className='w-full'>
+                        <a
+                        href={`https://twitter.com/intent/tweet?hashtags=microfactory%2Ccc0%2Cweb3&original_referer=https%3A%2F%2Fmicrofactory.digitalax.xyz%2F&ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Eshare%7Ctwgr%5E&text=${twitterText(mapLocation)}...&url=%20`}
+                        data-size="short"
+                        >
+                        <FaTwitter 
+                        color='#1d9bf0'
+                        className='align-center inline-flex'
+                        />
+                        <p className='font-f25 my-0 text-xs m-0'>
+                        Pulse
+                        </p>
+                      </a>
+                      <Script
+                        async
+                        type="text/javascript"
+                        src="https://platform.twitter.com/widgets.js"
+                        charset="utf-8"
+                      />
+                    </div> 
+                  </Popup>
                 </Marker>
               ))
             }
