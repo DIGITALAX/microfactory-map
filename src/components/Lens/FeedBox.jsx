@@ -217,7 +217,7 @@ function FeedBox() {
           <FeedSearch />
           <div className="feed">
           <div className= 'bg-lensGrey cursor-auto p-6 mr-2 ml-2 rounded-lg mb-5 item-center h-96 overflow-auto select-text'>
-          {state}
+          <Feed />
           </div>
           </div>
           </feedApi.Provider>

@@ -3,7 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup, useMapEvents, useMap, LayersCon
 import 'leaflet/dist/leaflet.css'
 import mapLocationData from './../../mapdata/locations.json';
 import MarkerInfo from './MarkerInfo';
-import Script from '../../customhooks/Script';
+import Script from '../../hooks/Script';
 import {FaTwitter} from 'react-icons/fa';
 
 // marker icons
@@ -93,7 +93,7 @@ function Map() {
   const filteredOutposts = mapLocationData.filter(item => item.type === "Outposts");
   const filteredChannels = mapLocationData.filter(item => item.type === "Channels");
 
-  const TWITTER_MAX = 249;
+  const TWITTER_MAX = 248;
 
   // Marker on click
   const [clickPosition, setClickPosition] = useState(null);
@@ -135,7 +135,7 @@ function Map() {
       if (mapLocation.story.length < TWITTER_MAX) {
         return mapLocation.story
       } else {
-        return `${mapLocation.story.substring(0, TWITTER_MAX)}...`
+        return `${mapLocation.story.substring(0, TWITTER_MAX)}`
       } 
     };
 
@@ -181,22 +181,23 @@ function Map() {
                   <Popup >
                     <div className='w-full'>
                         <a
-                        href="https://twitter.com/intent/tweet"
-                        data-size="short"
-                        data-text={twitterText(mapLocation)}
-                        data-url=" "
-                        data-hashtags="microfactory,cc0,web3"
-                        data-via=""
+                 
+                        className="twitter-share-button"
+        href="https://twitter.com/intent/tweet"
+        data-size="short"
+        data-text="text"
+        data-url=" "
+        data-hashtags="hello, streetart"
+        data-via=""
                         >
                         <FaTwitter 
                         color='#1d9bf0'
                         className='align-center inline-flex'
                         />
-                        <p className='font-space text-xs m-0'>
-                        Share Story
+                        <p className='font-f25 my-0 text-xs m-0'>
+                        Pulse
                         </p>
                       </a>
-
                       <Script
                         async
                         type="text/javascript"
