@@ -181,14 +181,8 @@ function Map() {
                   <Popup >
                     <div className='w-full'>
                         <a
-                 
-                        className="twitter-share-button"
-        href="https://twitter.com/intent/tweet"
-        data-size="short"
-        data-text="text"
-        data-url=" "
-        data-hashtags="hello, streetart"
-        data-via=""
+                        href={`https://twitter.com/intent/tweet?hashtags=microfactory%2Ccc0%2Cweb3&original_referer=https%3A%2F%2Fmicrofactory.digitalax.xyz%2F&ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Eshare%7Ctwgr%5E&text=${twitterText(mapLocation)}...&url=%20`}
+                        data-size="short"
                         >
                         <FaTwitter 
                         color='#1d9bf0'
