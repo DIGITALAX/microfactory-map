@@ -1,18 +1,16 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import {CgProfile} from 'react-icons/cg';
 import moment from 'moment';
 import {FaRetweet, FaComments} from 'react-icons/fa';
-import {HiCollection} from 'react-icons/hi'
+import {HiCollection} from 'react-icons/hi';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import ScrollLoader from './ScrollLoader';
+import {ScrollLoader} from './ScrollLoader';
 import JSONPretty from 'react-json-pretty';
 import { feedApi } from './FeedBox';
-import changeFeed from '../../reducers/feed';
 
-function Feed(props) {
+function Feed() {
 
     const feedContext = useContext(feedApi);
-
 
     const checkImage = (media) => {
 
@@ -43,23 +41,6 @@ function Feed(props) {
         }
     };
 
-    // const getHyperLink = (content) => {
-    //     const options = {
-    //         target: "_blank",
-    //         ref: "noreferrer"
-    //     }
-    //     return linkifyStr(content, options)
-    // };
-
-    // const getHyperLink = (content) => {
-    //     const options = {
-    //         target: "_blank",
-    //         ref: "noreferrer"
-    //     }
-    //     return UrlFormatter(content, options)
-    // };
-
-
   return (
     <InfiniteScroll
     dataLength={feedContext.publicationsFeed.length}
@@ -67,14 +48,12 @@ function Feed(props) {
     hasMore={true}
     loader={<ScrollLoader />}
     height='20rem'
-    scrollableTarget={props.id}
-    pullDownToRefresh
-    refreshFunction={feedContext.fetchMorePublications}
     >
         {
-            feedContext.publicationsFeed.map((publication, index)=>
-            (
-                    <div key={index}>
+            feedContext.publicationsFeed.map((publication)=> {
+                return (
+                    <div key={publication.id}>
+                        {feedContext.setId(publication.id)}
                         <div className='w-12 float-left'>
                         <a href={`https://lenster.xyz/u/${publication.profile.handle}`}  target="_blank" rel="noreferrer">
                         {getAvatar(publication.profile)}
@@ -101,21 +80,35 @@ function Feed(props) {
                             </div>
                                 <ul className='mt-2 inline-block cursor-pointer font-sans text-sm sm:text-base'>
                                 <li className='float-left ml-0 sm:m-1'
-                                onClick={() => changeFeed({type: "Collect"})}>
+                                onClick={() => {
+                                    feedContext.setFeed("Collect");
+                                    feedContext.setId(publication.id);
+                                    console.log(publication.id);
+                                }}
+                                >
                                 <HiCollection className='float-left relative top-[0.15rem] m-2 ml-0 align-middle' />
                                 <span className='relative top-2 text-xs sm:top-1'>
                                 {publication.stats.totalAmountOfCollects}
                                 </span>
                                 </li>
                                 <li className='float-left sm:m-1'
-                                onClick={() => changeFeed({type: "Comment"})}>
+                                onClick={() => {
+                                    feedContext.setFeed("Comment");
+                                    feedContext.setId(publication.id);
+                                    console.log(publication.id);
+                                }}
+                                >
                                 <FaComments className='float-left relative top-1 text-xs m-2 align-middle' />
                                 <span className='relative top-2 text-xs sm:top-1'>
                                 {publication.stats.totalAmountOfComments}
                                 </span>
                                 </li>
                                 <li className='float-left sm:m-1'
-                                onClick={() => changeFeed({type: "Mirror"})}
+                                onClick={() => {
+                                    feedContext.setFeed("Mirror");
+                                    feedContext.setId(publication.id);
+                                    console.log(publication.id);
+                                }}
                                 >
                                 <FaRetweet className='float-left relative top-1 text-xs m-2 align-middle' />
                                 <span className='relative top-2 text-xs sm:top-1'>
@@ -125,7 +118,9 @@ function Feed(props) {
                                 </ul>
                         </div>
                     </div>
-            ))
+                )
+            }    
+            )
         }
     </InfiniteScroll>
   )

@@ -111,6 +111,49 @@ function Map() {
     return null
   };
 
+  // my pos
+  // const [myPosition, setMyPosition] = useState(null);
+  // const [flyToMyLocation, setFlyToMyLocation] = useState(false);
+
+  // const GetMyLocation = () => {
+  //   const getCurrentLocation = () => {
+  //     if (navigator.geolocation) {
+  //       navigator.geolocation.getCurrentPosition((position) => {
+  //         setMyPosition([position.coords.latitude, position.coords.longitude])
+  //         setFlyToMyLocation(true);
+  //       }, (error) => {
+  //         alert(error.message)
+  //       } )
+  //     } else {
+  //       alert("Your Location Can't Be Found");
+  //     }
+  //   }
+
+  //   return (
+  //     <button onClick={getCurrentLocation}>GET MY LOCATION</button>
+  //   )
+  // }
+
+  // const CurrentLocationMarker = () => {
+  //   const currentCoordinates = myPosition ? myPosition: [0,0];
+
+  //   const map = useMap();
+
+  //   if (flyToMyLocation) {
+  //     map.flyTo(currentCoordinates, 17);
+  //     setFlyToMyLocation(false);
+  //   }
+
+  //   return (
+  //     <Marker position={currentCoordinates}>
+  //       <Popup>
+  //         You are here!
+  //       </Popup>
+  //     </Marker>
+  //   )
+  // }
+
+
   const [checkedValue, setCheckedValue] = useState("All");
 
   // toggle icons boolean
@@ -146,13 +189,20 @@ function Map() {
       <MarkerInfo clickedMarker={clickedMarker} setClickedMarker={setClickedMarker} />
       {/* <SearchMap setFlyToInputID={setFlyToInputID} setInputID={setInputID} setIdcoords={setIdcoords} mapLocationData={mapLocationData} /> */}
 
+      <div className='right-align'>
+      {/* <GetMyLocation /> */}
+      </div>
+
+
       <MapContainer center={[39, -75]} zoom={2}  scrollWheelZoom={true} style={{height: "100vh", width: "100%", position: "relative", display:"flex", zIndex:"0", backgroundColor:"#191A1A"}} zoomControl={false}>
         <TileLayer
           url="https://{s}.tile.jawg.io/jawg-dark/{z}/{x}/{y}{r}.png?access-token=nQ7SwDENfnLoXI4s2visFVsAAUe2qBLOVHtx7yfLcrpcjfwL9QdzxMS3Rmp55i8W"
         />
         <ZoomControl position='topright' zoomInText="+" zoomOutText='-'/>
 
+        {/* <CurrentLocationMarker /> */}
         <CheckedListener />
+        {/* <RoutingMachine /> */}
 
         { flyToInput ?
         <FlyToMarker /> :

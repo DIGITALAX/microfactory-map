@@ -4,12 +4,9 @@ import { VscChromeMinimize } from 'react-icons/vsc';
 import { HiArrowsExpand } from 'react-icons/hi'
 import { contextApi } from '../../pages/_app';
 import Draggable from "react-draggable";
-import Feed from './Feed';
-import FeedSearch from './FeedSearch';
-import { client, randomPublications, mirrorsByPost } from '../../clients/lens/api';
-import {FiRefreshCcw} from 'react-icons/fi';
-import {IoMdArrowRoundBack} from 'react-icons/io';
-import Mirrors from './PublicationsFunctions/Mirrors';
+import { client, randomPublications, mirrorsOfPost, commentsOfPost, collectsOfPost } from '../../clients/lens/api';
+import Box from './Box';
+import SearchBar from './SearchBar';
 
 export const feedApi = createContext();
 
@@ -19,67 +16,7 @@ function FeedBox() {
   const context = useContext(contextApi);
 
   const [publicationsFeed, setPublicationsFeed] = useState([]);
-  const [mirrorsFeed, setMirrorsFeed] = useState([]);
-
-  const [mirror, setMirror] = useState(false);
-  const [mirrorPageInfo, setMirorPageInfo] = useState();
-
-
-  async function fetchMirrors() {
-
-    try {
-        const response = await client.query(mirrorsByPost, {
-            request: {
-                query: id,
-                type: 'MIRROR', 
-                limit: 30,
-            }
-        }).toPromise();
-        const arr = response.data.id.items;
-        const sortedArr = arr.sort((a,b) => Date.parse(b.createdAt) - Date.parse(a.createdAt));
-        setMirrorsFeed(sortedArr);
-        setMirorPageInfo(response.data.id.mirrorPageInfo);
-        return response.data.id.items;
-
-    } catch (err) {
-        console.log(err)
-    }
-
-  };
-
-  const fetchMoreMirrors = async () => {
-    try {
-        const response = await client.query(mirrorsByPost, {
-            request: {
-                sortCriteria: 'LATEST', 
-                publicationTypes: ['MIRROR'], 
-                limit: 30,
-                noRandomize: true,
-                cursor: mirrorPageInfo.next,
-            }
-        }).toPromise();
-
-        const arr = response.data.id.items;
-
-        const sortedArr = arr.sort((a,b) => Date.parse(b.createdAt) - Date.parse(a.createdAt));
-        setMirrorsFeed([...mirrorsFeed, ...sortedArr]);
-        setMirorPageInfo(response.data.id.mirrorPageInfo);
-        return response.data.id.items;
-
-    } catch (err) {
-        console.log(err)
-    }
-  };
-
-  
-  const handleMirrorClose = () => {
-    setMirror(false);
-  }
-
-  const handleMirrorOpen = () => {
-    fetchMirrors();
-    setMirror(true);
-  }
+  const [feed, setFeed] = useState();
 
   const [pageInfo, setPageInfo] = useState();
 
@@ -98,7 +35,6 @@ function FeedBox() {
             setPublicationsFeed(sortedArr);
             setPageInfo(response.data.explorePublications.pageInfo);
             return response.data.explorePublications.items;
-
         } catch (err) {
             console.log(err)
         }
@@ -106,13 +42,11 @@ function FeedBox() {
     };
 
     useEffect( () => {
-
         fetchPublications();
-        
     },[]);
 
 
-
+    
     const fetchMorePublications = async () => {
         try {
             const response = await client.query(randomPublications, {
@@ -136,6 +70,144 @@ function FeedBox() {
             console.log(err)
         }
     };
+
+    
+    const [mirrorsFeed, setMirrorsFeed] = useState([]);
+    const [commentsFeed, setCommentsFeed] = useState([]);
+    const [collectsFeed, setCollectsFeed] = useState([]);
+    const [id, setId] = useState(null);
+
+    async function fetchMirrors() {
+
+            try {
+                const mirrorsResponse = await client.query(mirrorsOfPost, {
+                    request: {
+                        whoMirroredPublicationId: id,
+                        limit: 30,
+                    }
+                }).toPromise();
+                const arr = mirrorsResponse.data.profiles.items;
+                const sortedArr = arr.sort((a,b) => Date.parse(b.createdAt) - Date.parse(a.createdAt));
+                setMirrorsFeed(sortedArr);
+                setPageInfo(mirrorsResponse.data.profiles.pageInfo);
+                return mirrorsResponse.data.profiles.items;
+        
+            } catch (err) {
+                console.log(err)
+            }
+        
+          };
+
+      const fetchMoreMirrors = async () => {
+        try {
+            const mirrorsResponse = await client.query(mirrorsOfPost, {
+                request: {
+                    whoMirroredPublicationId: id,
+                    limit: 30,
+                    cursor: pageInfo.next,
+                }
+            }).toPromise();
+    
+            const arr = mirrorsResponse.data.profiles.items;
+    
+            const sortedArr = arr.sort((a,b) => Date.parse(b.createdAt) - Date.parse(a.createdAt));
+            setMirrorsFeed([...mirrorsFeed, ...sortedArr]);
+            setPageInfo(mirrorsResponse.data.profiles.pageInfo);
+            return mirrorsResponse.data.profiles.items;
+    
+        } catch (err) {
+            console.log(err)
+        }
+      };
+
+      async function fetchCollects() {
+
+        try {
+            const collectsResponse = await client.query(collectsOfPost, {
+                request: {
+                    publicationId: id,
+                    limit: 30,
+                }
+            }).toPromise();
+            console.log(id);
+            console.log(collectsResponse.data.whoCollectedPublication.items);
+            const arr = collectsResponse.data.whoCollectedPublication.items;
+            const sortedArr = arr.sort((a,b) => Date.parse(b.createdAt) - Date.parse(a.createdAt));
+            setCollectsFeed(sortedArr);
+            setPageInfo(collectsResponse.data.whoCollectedPublication.pageInfo);
+            return collectsResponse.data;
+    
+        } catch (err) {
+            console.log(err)
+        }
+    
+      };
+
+  const fetchMoreCollects = async () => {
+    try {
+        const collectsResponse = await client.query(collectsOfPost, {
+            request: {
+                publicationId: id,
+                limit: 30,
+                cursor: pageInfo.next,
+            }
+        }).toPromise();
+
+        const arr = collectsResponse.data.whoCollectedPublication.items;
+
+        const sortedArr = arr.sort((a,b) => Date.parse(b.createdAt) - Date.parse(a.createdAt));
+        setCollectsFeed([...collectsFeed, ...sortedArr]);
+        setPageInfo(collectsResponse.data.whoCollectedPublication.pageInfo);
+        return collectsResponse.data.whoCollectedPublication.items;
+
+    } catch (err) {
+        console.log(err)
+    }
+  };
+    
+    async function fetchComments() {
+
+        try {
+            const commentsResponse = await client.query(commentsOfPost, {
+                request: {
+                    commentsOf: id,
+                    limit: 30,
+                }
+            }).toPromise();
+            console.log(commentsResponse.data.publications)
+            const arr = commentsResponse.data.publications.items;
+            const sortedArr = arr.sort((a,b) => Date.parse(b.createdAt) - Date.parse(a.createdAt));
+            setCommentsFeed(sortedArr);
+            setPageInfo(commentsResponse.data.publications.pageInfo);
+            return commentsResponse.data.publications.items;
+    
+        } catch (err) {
+            console.log(err)
+        }
+    
+    };
+
+    const fetchMoreComments = async () => {
+        try {
+            const commentsResponse = await client.query(commentsOfPost, {
+                request: {
+                    commentsOf: id,
+                    limit: 30,
+                    cursor: pageInfo.next,
+                }
+            }).toPromise();
+    
+            const arr = commentsResponse.data.publications.items;
+    
+            const sortedArr = arr.sort((a,b) => Date.parse(b.createdAt) - Date.parse(a.createdAt));
+            setCommentsFeed([...commentsFeed, ...sortedArr]);
+            setPageInfo(commentsResponse.data.publications.pageInfo);
+            return commentsResponse.data.publications.items;
+    
+        } catch (err) {
+            console.log(err)
+        }
+      };
 
 
     async function fetchLatestPublications() {
@@ -186,38 +258,33 @@ function FeedBox() {
           <h1 className="font-semibold text-center text-xl text-darkGreenLens mt-4 font-spacebold">
             Scroll Feed
           </h1>
-          {!mirror ?
-          <div className='bg-darkGreenLens p-2 rounded-lg h-8 w-8 hover:opacity-80 cursor-pointer relative sm:left-[80px] sm:top-[3rem] left-[10px] top-[0.5rem]'>
-          <FiRefreshCcw
-          color='white'
-          onClick={fetchLatestPublications}
-           />
-          </div>
-          : null }
           <feedApi.Provider
           value={{
             publicationsFeed: publicationsFeed,
             setPublicationsFeed: setPublicationsFeed,
             fetchMorePublications: fetchMorePublications,
             fetchPublications: fetchPublications,
-            handleMirrorOpen: handleMirrorOpen,
-            mirror: mirror,
+            fetchLatestPublications: fetchLatestPublications,
+            fetchMirrors: fetchMirrors,
+            fetchMoreMirrors: fetchMoreMirrors,
+            feed: feed,
             mirrorsFeed: mirrorsFeed,
-            fetchMoreMirrors: fetchMoreMirrors
+            setMirrorsFeed: setMirrorsFeed,
+            setFeed: setFeed,
+            id: id,
+            setId: setId,
+            fetchComments: fetchComments,
+            commentsFeed: commentsFeed,
+            fetchMoreComments: fetchMoreComments,
+            fetchCollects: fetchCollects,
+            fetchMoreCollects: fetchMoreCollects,
+            collectsFeed: collectsFeed
           }}
           >
-          {mirror ?
-          <div className='bg-darkGreenLens p-2 rounded-lg mb-4 sm:mb-14  h-8 w-8 hover:opacity-80 cursor-pointer relative sm:top-[3rem] left-[10px] top-[0.5rem]'>
-          <IoMdArrowRoundBack 
-           color='white'
-           onClick={handleMirrorClose}
-          />
-          </div>
-          : null}
-          <FeedSearch />
+          <SearchBar />
           <div className="feed">
           <div className= 'bg-lensGrey cursor-auto p-6 mr-2 ml-2 rounded-lg mb-5 item-center h-96 overflow-auto select-text'>
-          <Feed />
+          <Box />
           </div>
           </div>
           </feedApi.Provider>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function ScrollLoader() {
+export const ScrollLoader = () => {
   return (
     <div className='animate-bounce bg-white font-space'>
       <span>Loading Feed..</span>
@@ -8,4 +8,26 @@ function ScrollLoader() {
   )
 }
 
-export default ScrollLoader
+export const CommentsLoader = () => {
+  return (
+    <div className='animate-bounce bg-white font-space'>
+      <span>Loading Comments..</span>
+    </div>
+  )
+}
+
+export const MirrorsLoader = () => {
+  return (
+    <div className='animate-bounce bg-white font-space'>
+      <span>Loading Mirrors..</span>
+    </div>
+  )
+}
+
+export const CollectsLoader = () => {
+  return (
+    <div className='animate-bounce bg-white font-space'>
+      <span>Loading Collectors..</span>
+    </div>
+  )
+}

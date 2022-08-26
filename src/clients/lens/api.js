@@ -666,37 +666,25 @@ export const getChallenge = `
     challenge(request: $request) { text }
   }`;
 
-export const mirrorsByPost = `query Search($request: SearchQueryRequest!) {
-  search(request: $request) {
-    ... on PublicationSearchResult {
-       __typename 
-      items {
-        __typename 
-        ... on Comment {
-          ...CommentFields
-        }
-        ... on Post {
-          ...PostFields
-        }
+export const commentsOfPost = `
+query Publications($request: PublicationsQueryRequest!) {
+  publications(request: $request) {
+    items {
+      __typename 
+      ... on Post {
+        ...PostFields
       }
-      pageInfo {
-        prev
-        totalCount
-        next
+      ... on Comment {
+        ...CommentFields
+      }
+      ... on Mirror {
+        ...MirrorFields
       }
     }
-    ... on ProfileSearchResult {
-      __typename 
-      items {
-        ... on Profile {
-          ...ProfileFields
-        }
-      }
-      pageInfo {
-        prev
-        totalCount
-        next
-      }
+    pageInfo {
+      prev
+      next
+      totalCount
     }
   }
 }
@@ -706,31 +694,8 @@ fragment MediaFields on Media {
   mimeType
 }
 
-fragment MirrorBaseFields on Mirror {
-  id
-  profile {
-    ...ProfileFields
-  }
-  stats {
-    ...PublicationStatsFields
-  }
-  metadata {
-    ...MetadataOutputFields
-  }
-  createdAt
-  collectModule {
-    ...CollectModuleFields
-  }
-  referenceModule {
-    ... on FollowOnlyReferenceModuleSettings {
-      type
-    }
-  }
-  appId
-}
-
 fragment ProfileFields on Profile {
-  profileId: id,
+  id
   name
   bio
   attributes {
@@ -741,7 +706,8 @@ fragment ProfileFields on Profile {
   }
   isFollowedByMe
   isFollowing(who: null)
-  metadataUrl: metadata
+  followNftAddress
+  metadata
   isDefault
   handle
   picture {
@@ -837,10 +803,10 @@ fragment Erc20Fields on Erc20 {
 
 fragment CollectModuleFields on CollectModule {
   __typename
-    ... on FreeCollectModuleSettings {
-        type
-    followerOnly
-    contractAddress
+  ... on FreeCollectModuleSettings {
+      type
+      followerOnly
+      contractAddress
   }
   ... on FeeCollectModuleSettings {
     type
@@ -922,6 +888,44 @@ fragment PostFields on Post {
   hasCollectedByMe
 }
 
+fragment MirrorBaseFields on Mirror {
+  id
+  profile {
+    ...ProfileFields
+  }
+  stats {
+    ...PublicationStatsFields
+  }
+  metadata {
+    ...MetadataOutputFields
+  }
+  createdAt
+  collectModule {
+    ...CollectModuleFields
+  }
+  referenceModule {
+    ... on FollowOnlyReferenceModuleSettings {
+      type
+    }
+  }
+  appId
+  hidden
+  reaction(request: null)
+  hasCollectedByMe
+}
+
+fragment MirrorFields on Mirror {
+  ...MirrorBaseFields
+  mirrorOf {
+   ... on Post {
+      ...PostFields          
+   }
+   ... on Comment {
+      ...CommentFields          
+   }
+  }
+}
+
 fragment CommentBaseFields on Comment {
   id
   profile {
@@ -979,4 +983,188 @@ fragment CommentMirrorOfFields on Comment {
        ...MirrorBaseFields
     }
   }
-}`;
+}
+`;
+
+export const mirrorsOfPost = `
+query Profiles($request: ProfileQueryRequest!) {
+  profiles(request: $request) {
+    items {
+      id
+      name
+      bio
+      attributes {
+        displayType
+        traitType
+        key
+        value
+      }
+      followNftAddress
+      metadata
+      isDefault
+      picture {
+        ... on NftImage {
+          contractAddress
+          tokenId
+          uri
+          verified
+        }
+        ... on MediaSet {
+          original {
+            url
+            mimeType
+          }
+        }
+        __typename
+      }
+      handle
+      coverPicture {
+        ... on NftImage {
+          contractAddress
+          tokenId
+          uri
+          verified
+        }
+        ... on MediaSet {
+          original {
+            url
+            mimeType
+          }
+        }
+        __typename
+      }
+      ownedBy
+      dispatcher {
+        address
+        canUseRelay
+      }
+      stats {
+        totalFollowers
+        totalFollowing
+        totalPosts
+        totalComments
+        totalMirrors
+        totalPublications
+        totalCollects
+      }
+      followModule {
+        ... on FeeFollowModuleSettings {
+          type
+          amount {
+            asset {
+              symbol
+              name
+              decimals
+              address
+            }
+            value
+          }
+          recipient
+        }
+        __typename
+      }
+    }
+    pageInfo {
+      prev
+      next
+      totalCount
+    }
+  }
+}
+`;
+
+export const collectsOfPost = `
+query WhoCollectedPublication($request: WhoCollectedPublicationRequest!) {
+  whoCollectedPublication(request: $request) {
+    items {
+      address
+      defaultProfile {
+        id
+        name
+        bio
+        isDefault
+        attributes {
+          displayType
+          traitType
+          key
+          value
+        }
+        followNftAddress
+        metadata
+        handle
+        picture {
+          ... on NftImage {
+            contractAddress
+            tokenId
+            uri
+            chainId
+            verified
+          }
+          ... on MediaSet {
+            original {
+              url
+              mimeType
+            }
+          }
+        }
+        coverPicture {
+          ... on NftImage {
+            contractAddress
+            tokenId
+            uri
+            chainId
+            verified
+          }
+          ... on MediaSet {
+            original {
+              url
+              mimeType
+            }
+          }
+        }
+        ownedBy
+        dispatcher {
+          address
+          canUseRelay
+        }
+        stats {
+          totalFollowers
+          totalFollowing
+          totalPosts
+          totalComments
+          totalMirrors
+          totalPublications
+          totalCollects
+        }
+        followModule {
+          ... on FeeFollowModuleSettings {
+            type
+            contractAddress
+            amount {
+              asset {
+                name
+                symbol
+                decimals
+                address
+              }
+              value
+            }
+            recipient
+          }
+          ... on ProfileFollowModuleSettings {
+           type
+          }
+          ... on RevertFollowModuleSettings {
+           type
+          }
+        }
+      }
+    }
+    pageInfo {
+      prev
+      next
+      totalCount
+    }
+  }
+}
+`;

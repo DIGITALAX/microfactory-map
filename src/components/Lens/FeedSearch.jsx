@@ -32,7 +32,7 @@ const FeedSearch = () => {
                 }
             }
             fetchSearch()
-            console.log(feedContext.publicationsFeed)
+            
     }, [search])
 
  
