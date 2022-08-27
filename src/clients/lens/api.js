@@ -4,7 +4,6 @@ const APIURL = "https://api.lens.dev";
 
 export const client = new createClient({
   url: APIURL,
-  requestPolicy: "network-only",
 });
 
 // limit can be changed
