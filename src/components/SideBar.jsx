@@ -5,6 +5,7 @@ import { contextApi } from '../pages/_app';
 import {MdError} from 'react-icons/md';
 import MenuItems from './MenuItems';
 
+
 function SideBar() {
 
   const data = useContext(contextApi);
@@ -22,6 +23,7 @@ function SideBar() {
   const handleLensModalOpen = () => {
     setLensModal(true);
   };
+
 
   return (
     <div className='float-left' >

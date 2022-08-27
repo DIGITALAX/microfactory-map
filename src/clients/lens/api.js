@@ -661,11 +661,6 @@ fragment CommentMirrorOfFields on Comment {
   }
 }`;
 
-export const getChallenge = `
-  query($request: ChallengeRequest!) {
-    challenge(request: $request) { text }
-  }`;
-
 export const commentsOfPost = `
 query Publications($request: PublicationsQueryRequest!) {
   publications(request: $request) {
@@ -1165,6 +1160,23 @@ query WhoCollectedPublication($request: WhoCollectedPublicationRequest!) {
       next
       totalCount
     }
+  }
+}
+`;
+
+export const generateChallenge = `
+query Challenge($request: ChallengeRequest!) {
+  challenge(request: $request) {
+    text
+  }
+}
+`;
+
+export const authenticateLogin = `
+mutation Authenticate($request: SignedAuthChallenge!) { 
+  authenticate(request: $request) {
+    accessToken
+    refreshToken
   }
 }
 `;
