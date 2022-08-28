@@ -28,7 +28,7 @@ function LensModal(props) {
     try {
       const response = await client.query(userProfile, {
         request: {
-          address: address
+          ethereumAddress: address
         }
       }).toPromise();
       console.log(response);
