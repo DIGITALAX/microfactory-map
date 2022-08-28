@@ -31,8 +31,8 @@ function LensModal(props) {
           address: address
         }
       }).toPromise();
-      console.log(response.data);
-      setLensProfile(response.data.defaultProfile);
+      console.log(response);
+      // setLensProfile(response.data.defaultProfile);
       
     } catch (err) {
       console.error(err.message);
