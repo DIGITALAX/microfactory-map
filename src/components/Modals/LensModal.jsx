@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import {useAccount, useSignMessage} from 'wagmi';
-import {client, generateChallenge, authenticateLogin} from './../../clients/lens/api';
+import {client, generateChallenge, authenticateLogin, userProfile} from './../../clients/lens/api';
 
 function LensModal(props) {
 
   const [message, setMessage] = useState('');
+  const [userProfile, setUserProfile] = useState({});
 
   const {address} = useAccount();
 
@@ -18,6 +19,19 @@ function LensModal(props) {
 
   const handleLensModalClose = () => {
     props.setLensModal(false);
+  }
+
+  const getLensProfile = async () => {
+    try {
+      const response = await client.query(userProfile, {
+        request: {
+          address: address
+        }
+      }).toPromise();
+      setUserProfile(response.data.defaultProfile);
+    } catch (err) {
+      console.error(err.message);
+    }
   }
 
   const lensLogin = async () => {
@@ -41,6 +55,14 @@ function LensModal(props) {
       ).toPromise();
 
       console.log(accessTokens);
+
+      const {accessToken, refreshToken} = accessTokens.data.authenticate;
+
+      getLensProfile(address);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        accessToken,
+        refreshToken,
+      }))
 
     } catch (err) {
       console.error(err.message);
