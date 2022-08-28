@@ -1,12 +1,15 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import {useAccount, useSignMessage} from 'wagmi';
-import {client, generateChallenge, authenticateLogin, userProfile} from './../../clients/lens/api';
+import {client, generateChallenge, authenticateLogin, userProfile, STORAGE_KEY} from './../../clients/lens/api';
+import {parseJWT, refreshAuthToken} from './../../utils/utils';
+import { useRouter } from 'next/router';
 
 function LensModal(props) {
 
+  const router = useRouter();
   const [message, setMessage] = useState('');
-  const [userProfile, setUserProfile] = useState({});
+  const [lensProfile, setLensProfile] = useState({});
 
   const {address} = useAccount();
 
@@ -28,12 +31,28 @@ function LensModal(props) {
           address: address
         }
       }).toPromise();
-      setUserProfile(response.data.defaultProfile);
+      setLensProfile(response.data.defaultProfile);
       console.log(response.data.defaultProfile);
     } catch (err) {
       console.error(err.message);
     }
   }
+
+  const handleRouteChanges = () => {
+    router.events.on('routeChangeStart', () => {
+      refreshAuthToken();
+    })
+  };
+
+  useEffect(() => {
+    refreshAuthToken();
+    if (address) {
+        getLensProfile(address);
+    } else {
+        alert("Address Not connected display rainbow");
+    }
+    handleRouteChanges();
+  }, [address]);
 
   const lensLogin = async () => {
     try {
@@ -58,11 +77,14 @@ function LensModal(props) {
       console.log(accessTokens);
 
       const {accessToken, refreshToken} = accessTokens.data.authenticate;
+      const dataAccessToken = parseJWT(accessToken);
 
       getLensProfile(address);
+      
       localStorage.setItem(STORAGE_KEY, JSON.stringify({
         accessToken,
         refreshToken,
+        exp: dataAccessToken.exp,
       }))
 
     } catch (err) {
@@ -95,3 +117,5 @@ function LensModal(props) {
 }
 
 export default LensModal
+
+

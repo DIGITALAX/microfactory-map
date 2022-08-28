@@ -6,6 +6,8 @@ export const client = new createClient({
   url: APIURL,
 });
 
+export const STORAGE_KEY = "LH_STORAGE_KEY";
+
 // limit can be changed
 export const randomPublications = `query ExplorePublications($request: ExplorePublicationRequest!) {
   explorePublications(
@@ -1262,6 +1264,14 @@ query DefaultProfile($request: EthereumAddress!) {
        type
       }
     }
+  }
+}
+`;
+
+export const refreshMutation = `mutation Refresh($request: RefreshRequest!) {
+  refresh(request: $request) {
+    accessToken
+    refreshToken
   }
 }
 `;
