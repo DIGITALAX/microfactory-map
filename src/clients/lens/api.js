@@ -1183,7 +1183,7 @@ mutation Authenticate($request: SignedAuthChallenge!) {
 `;
 
 export const userProfile = `
-query DefaultProfile($request: EthereumAddress!) {
+query DefaultProfile($request: DefaultProfileRequest!) {
   defaultProfile(request: $request) {
     id
     name
