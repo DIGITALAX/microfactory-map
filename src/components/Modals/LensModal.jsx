@@ -29,6 +29,7 @@ function LensModal(props) {
         }
       }).toPromise();
       setUserProfile(response.data.defaultProfile);
+      console.log(response.data.defaultProfile);
     } catch (err) {
       console.error(err.message);
     }
