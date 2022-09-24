@@ -49,9 +49,7 @@ function LensModal(props) {
     refreshAuthToken();
     if (address) {
         getLensProfile(address);
-    } else {
-        alert("Address Not connected display rainbow");
-    }
+    } 
     handleRouteChanges();
   }, [address]);
 
